@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Tablero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Tablero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tablero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\tablero.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -44,8 +44,7 @@
               "RelativeToolTip": "src\\Ajedrez.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-10T10:16:06.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-10T10:16:06.769Z"
             },
             {
               "$type": "Document",
@@ -57,8 +56,7 @@
               "RelativeToolTip": "src\\tablero.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-16T08:54:26.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T08:54:26.888Z"
             },
             {
               "$type": "Document",
