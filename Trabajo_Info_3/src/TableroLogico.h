@@ -14,7 +14,6 @@ public:
     Pieza* getPieza(const Coordenada& pos) const;
 
     bool mover(const Coordenada& origen, const Coordenada& destino);
-
     Color getTurno() const { return turno; }
     void cambiarTurno();
 
@@ -23,8 +22,9 @@ public:
     bool coordenadaValida(const Coordenada& c) const;
 
     void inicializar();
-    void imprimir() const;   // ✅ NUEVO: para ver el tablero en consola
+    void imprimir() const;
 };
+
 
 
 

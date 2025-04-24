@@ -5,20 +5,23 @@ TableroVisual::TableroVisual(TableroLogico* logico, float tam)
 }
 
 void TableroVisual::dibuja() {
-    float centroY = 0.0f;
-    float centroX = 0.0f;
-    int totalFilas = logico->filas();
+    const int filas = 10;
+    const int columnas = 11;
+    float origenX = -columnas / 2.0f * size;
+    float origenY = filas / 2.0f * size;
+    int activos_por_fila[] = { 3, 5, 7, 9, 11, 11, 9, 7, 5, 3 };
 
-    for (int i = 0; i < totalFilas; ++i) {
-        int numColumnas = logico->columnas(i);
-        float y = centroY + (totalFilas / 2 - i) * size;
-        float inicioX = centroX - (numColumnas / 2.0f) * size;
-        bool invertir = i >= (totalFilas / 2);
+    for (int i = 0; i < filas; ++i) {
+        int activos = activos_por_fila[i];
+        int inicio_col = (columnas - activos) / 2;
 
-        for (int j = 0; j < numColumnas; ++j) {
-            float x = inicioX + j * size;
+        for (int j = inicio_col; j < inicio_col + activos; ++j) {
+            float x = origenX + j * size;
+            float y = origenY - i * size;
 
-            glColor3f((j % 2 == 0) ^ invertir ? 0.6f : 0.3f, 0.8f, 0.6f);
+            bool claro = (i + j) % 2 == 0;
+            glColor3f(claro ? 0.8f : 0.3f, claro ? 0.9f : 0.4f, claro ? 0.8f : 0.3f);
+
             glBegin(GL_QUADS);
             glVertex2f(x, y);
             glVertex2f(x + size, y);
@@ -26,17 +29,26 @@ void TableroVisual::dibuja() {
             glVertex2f(x, y - size);
             glEnd();
 
-            Pieza* p = logico->getPieza({ i, j });
-            if (p) {
-                glColor3f(0, 0, 0);
-                glRasterPos2f(x + 0.3f, y - 0.7f);
-                char text[3] = { (p->getColor() == Color::BLANCO ? 'B' : 'N'), p->getID(), '\0' };
-                for (int k = 0; text[k]; ++k)
-                    glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, text[k]);
+            if (logico->coordenadaValida({ i, j })) {
+                Pieza* p = logico->getPieza({ i, j });
+                if (p) {
+                    glColor3f(0, 0, 0);
+                    glRasterPos2f(x + 0.3f, y - 0.7f);
+                    char text[3] = {
+                        (p->getColor() == Color::BLANCO ? 'B' : 'N'),
+                        p->getID(), '\0'
+                    };
+                    for (int k = 0; text[k]; ++k)
+                        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, text[k]);
+                }
             }
         }
     }
 }
+
+
+
+
 
 
 

@@ -2,9 +2,8 @@
 #include <iostream>
 
 TableroLogico::TableroLogico() : turno(Color::BLANCO) {
-    int tamanios[] = { 3, 5, 7, 9, 11, 11, 9, 7, 5, 3 };
     for (int i = 0; i < 10; ++i)
-        cuadricula.push_back(std::vector<Pieza*>(tamanios[i], nullptr));
+        cuadricula.push_back(std::vector<Pieza*>(11, nullptr));
 }
 
 TableroLogico::~TableroLogico() {
@@ -36,11 +35,6 @@ bool TableroLogico::mover(const Coordenada& origen, const Coordenada& destino) {
 
     auto movimientos = p->movimientos_validos(origen, *this);
 
-    std::cout << "Movimientos válidos: ";
-    for (auto& m : movimientos)
-        std::cout << "[" << m.fila << "," << m.col << "] ";
-    std::cout << "\n";
-
     for (const auto& m : movimientos) {
         if (m.fila == destino.fila && m.col == destino.col) {
             delete cuadricula[destino.fila][destino.col];
@@ -67,8 +61,10 @@ int TableroLogico::columnas(int fila) const {
 }
 
 bool TableroLogico::coordenadaValida(const Coordenada& c) const {
-    return c.fila >= 0 && c.fila < filas() &&
-        c.col >= 0 && c.col < columnas(c.fila);
+    static int activos[] = { 3,5,7,9,11,11,9,7,5,3 };
+    int min = (11 - activos[c.fila]) / 2;
+    int max = min + activos[c.fila];
+    return c.fila >= 0 && c.fila < 10 && c.col >= min && c.col < max;
 }
 
 void TableroLogico::inicializar() {
@@ -78,49 +74,53 @@ void TableroLogico::inicializar() {
 
     turno = Color::BLANCO;
 
-    // --- BLANCAS ---
-    asignar({ 0, 0 }, new Reina(Color::BLANCO));
-    asignar({ 0, 1 }, new Alfil(Color::BLANCO));
-    asignar({ 0, 2 }, new Rey(Color::BLANCO));
+    // Blancas
+    asignar({ 0, 4 }, new Reina(Color::BLANCO));
+    asignar({ 0, 5 }, new Alfil(Color::BLANCO));
+    asignar({ 0, 6 }, new Rey(Color::BLANCO));
 
-    asignar({ 1, 0 }, new Torre(Color::BLANCO));
-    asignar({ 1, 1 }, new Caballo(Color::BLANCO));
-    asignar({ 1, 2 }, new Alfil(Color::BLANCO));
-    asignar({ 1, 3 }, new Caballo(Color::BLANCO));
-    asignar({ 1, 4 }, new Torre(Color::BLANCO));
+    asignar({ 1, 3 }, new Torre(Color::BLANCO));
+    asignar({ 1, 4 }, new Caballo(Color::BLANCO));
+    asignar({ 1, 5 }, new Alfil(Color::BLANCO));
+    asignar({ 1, 6 }, new Caballo(Color::BLANCO));
+    asignar({ 1, 7 }, new Torre(Color::BLANCO));
 
-    for (int j = 0; j < static_cast<int>(cuadricula[2].size()); ++j)
+    for (int j = 2; j <= 8; ++j)
         asignar({ 2, j }, new Peon(Color::BLANCO));
 
-    // --- NEGRAS ---
-    for (int j = 0; j < static_cast<int>(cuadricula[7].size()); ++j)
+    // Negras
+    for (int j = 2; j <= 8; ++j)
         asignar({ 7, j }, new Peon(Color::NEGRO));
 
-    asignar({ 8, 0 }, new Torre(Color::NEGRO));
-    asignar({ 8, 1 }, new Caballo(Color::NEGRO));
-    asignar({ 8, 2 }, new Alfil(Color::NEGRO));
-    asignar({ 8, 3 }, new Caballo(Color::NEGRO));
-    asignar({ 8, 4 }, new Torre(Color::NEGRO));
+    asignar({ 8, 3 }, new Torre(Color::NEGRO));
+    asignar({ 8, 4 }, new Caballo(Color::NEGRO));
+    asignar({ 8, 5 }, new Alfil(Color::NEGRO));
+    asignar({ 8, 6 }, new Caballo(Color::NEGRO));
+    asignar({ 8, 7 }, new Torre(Color::NEGRO));
 
-    asignar({ 9, 0 }, new Reina(Color::NEGRO));
-    asignar({ 9, 1 }, new Alfil(Color::NEGRO));
-    asignar({ 9, 2 }, new Rey(Color::NEGRO));
+    asignar({ 9, 4 }, new Reina(Color::NEGRO));
+    asignar({ 9, 5 }, new Alfil(Color::NEGRO));
+    asignar({ 9, 6 }, new Rey(Color::NEGRO));
 
-    imprimir(); // ✅ Mostrar el tablero al arrancar
+    imprimir();
 }
 
 void TableroLogico::imprimir() const {
-    std::cout << "\nTABLERO:\n";
     for (int i = 0; i < filas(); ++i) {
         std::cout << "Fila " << i << ": ";
         for (int j = 0; j < columnas(i); ++j) {
-            Pieza* p = cuadricula[i][j];
-            if (p)
-                std::cout << (p->getColor() == Color::BLANCO ? 'B' : 'N') << p->getID() << ' ';
-            else
-                std::cout << "-- ";
+            if (coordenadaValida({ i, j })) {
+                Pieza* p = cuadricula[i][j];
+                if (p)
+                    std::cout << (p->getColor() == Color::BLANCO ? 'B' : 'N') << p->getID() << " ";
+                else
+                    std::cout << "-- ";
+            }
+            else {
+                std::cout << "   ";
+            }
         }
-        std::cout << '\n';
+        std::cout << std::endl;
     }
 }
 
