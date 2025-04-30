@@ -28,7 +28,7 @@ Pieza* TableroLogico::getPieza(const Coordenada& pos) const {
 bool TableroLogico::mover(const Coordenada& origen, const Coordenada& destino) {
     if (!coordenadaValida(origen) || !coordenadaValida(destino))
         return false;
-
+    
     Pieza* p = getPieza(origen);
     if (!p || p->getColor() != turno)
         return false;

@@ -13,20 +13,32 @@ bool valida_y_añade(std::vector<Coordenada>& lista, const Coordenada& c, const T
 
 std::vector<Coordenada> Peon::movimientos_validos(const Coordenada& o, const TableroLogico& t) const {
     std::vector<Coordenada> movs;
-    int dir = (color == Color::BLANCO) ? -1 : 1;
-    Coordenada adelante = { o.fila + dir, o.col };
+    
+    int dir = (color == Color::BLANCO) ? 1 : -1;
 
-    if (t.coordenadaValida(adelante) && t.getPieza(adelante) == nullptr)
+    // Movimiento de 1 casilla hacia adelante
+    Coordenada adelante = { o.fila + dir, o.col };
+    if (t.coordenadaValida(adelante) && t.getPieza(adelante) == nullptr) {
         movs.push_back(adelante);
 
+    }
+    // Movimiento de 2 casillas desde la fila inicial
+    Coordenada dobleAdelante = { o.fila + 2 * dir, o.col };
+    if (t.coordenadaValida(adelante) && t.getPieza(dobleAdelante) == nullptr) {
+        movs.push_back(dobleAdelante);
+    }
+   
+    // Capturas diagonales
     for (int dx : {-1, 1}) {
         Coordenada diag = { o.fila + dir, o.col + dx };
         if (t.coordenadaValida(diag)) {
             Pieza* objetivo = t.getPieza(diag);
-            if (objetivo && objetivo->getColor() != color)
+            if (objetivo && objetivo->getColor() != color) {
                 movs.push_back(diag);
+            }
         }
     }
+
     return movs;
 }
 
