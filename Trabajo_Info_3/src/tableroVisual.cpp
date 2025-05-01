@@ -1,8 +1,44 @@
 ﻿#include "TableroVisual.h"
+#include <string>
+
+// Acceso a variables globales de tiempo
+extern int tiempoBlanco, tiempoNegro;
 
 TableroVisual::TableroVisual(TableroLogico* logico, float tam)
     : logico(logico), size(tam) {
 }
+
+void TableroVisual::dibujaReloj(int tiempo, float x, float y, const char* label) {
+    // Fondo del reloj
+    glColor3f(0.95f, 0.95f, 0.95f); // gris claro
+    glBegin(GL_QUADS);
+    glVertex2f(x - 0.2f, y + 0.3f);
+    glVertex2f(x + 2.2f, y + 0.3f);
+    glVertex2f(x + 2.2f, y - 0.4f);
+    glVertex2f(x - 0.2f, y - 0.4f);
+    glEnd();
+
+    // Borde
+    glColor3f(0.2f, 0.2f, 0.2f);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(x - 0.2f, y + 0.3f);
+    glVertex2f(x + 2.2f, y + 0.3f);
+    glVertex2f(x + 2.2f, y - 0.4f);
+    glVertex2f(x - 0.2f, y - 0.4f);
+    glEnd();
+
+    // Texto
+    if (tiempo <= 30)
+        glColor3f(1.0f, 0.2f, 0.2f); // rojo
+    else
+        glColor3f(0.0f, 0.0f, 0.0f); // negro
+
+    glRasterPos2f(x, y);
+    std::string texto = std::string(label) + ": " + std::to_string(tiempo) + "s";
+    for (char c : texto)
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+}
+
 
 void TableroVisual::dibuja() {
     const int filas = 10;
@@ -44,6 +80,10 @@ void TableroVisual::dibuja() {
             }
         }
     }
+
+    // Dibuja relojes a la derecha del tablero
+    dibujaReloj(tiempoBlanco, 3.2f, 4.0f, "Blanco");
+    dibujaReloj(tiempoNegro, 3.2f, -4.0f, "Negro");
 }
 
 

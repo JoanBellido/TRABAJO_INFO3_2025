@@ -9,6 +9,8 @@ private:
 
 public:
     TableroVisual(TableroLogico* logico, float tam = 1.0f);
+    void dibujaReloj(int tiempo, float x, float y, const char* label);
+
     void dibuja();
 };
 

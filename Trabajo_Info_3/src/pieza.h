@@ -23,11 +23,16 @@ public:
 };
 
 class Peon : public Pieza {
+private:
+    bool primerMovimiento = true;
 
 public:
     using Pieza::Pieza;
     char getID() const override { return 'P'; }
     std::vector<Coordenada> movimientos_validos(const Coordenada&, const TableroLogico&) const override;
+
+    void desactivarPrimerMovimiento() { primerMovimiento = false; }
+    bool puedeDoblePaso() const { return primerMovimiento; }
 };
 
 class Torre : public Pieza {
@@ -64,5 +69,6 @@ public:
     char getID() const override { return 'C'; }
     std::vector<Coordenada> movimientos_validos(const Coordenada&, const TableroLogico&) const override;
 };
+
 
 

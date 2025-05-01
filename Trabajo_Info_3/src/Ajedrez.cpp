@@ -4,6 +4,12 @@
 #include <optional>
 #include <iostream>
 
+// Reloj
+int tiempoBlanco = 3;
+int tiempoNegro = 300;
+bool tiempoFinalizado = false;
+int lastTick = 0;
+
 TableroLogico tableroLogico;
 TableroVisual tableroVisual(&tableroLogico, 1.0f);
 
@@ -27,6 +33,8 @@ void OnDraw() {
 }
 
 void OnMouse(int button, int state, int x, int y) {
+    if (tiempoFinalizado) return; // Bloqueo por tiempo agotado
+
     if (button != GLUT_LEFT_BUTTON || state != GLUT_DOWN)
         return;
 
@@ -70,12 +78,35 @@ void OnKeyboardDown(unsigned char key, int, int) {
     if (key == 'r') {
         tableroLogico.inicializar();
         seleccion.reset();
-        std::cout << "Tablero reiniciado\n";
+        tiempoBlanco = 300;
+        tiempoNegro = 300;
+        tiempoFinalizado = false;
+        std::cout << "Tablero y reloj reiniciados\n";
     }
     glutPostRedisplay();
 }
 
 void OnTimer(int value) {
+    int now = glutGet(GLUT_ELAPSED_TIME);
+    if (!tiempoFinalizado && now - lastTick >= 1000) {
+        lastTick = now;
+
+        if (tableroLogico.getTurno() == Color::BLANCO) {
+            if (--tiempoBlanco <= 0) {
+                tiempoBlanco = 0;
+                tiempoFinalizado = true;
+                std::cout << "¡Tiempo agotado! Gana el jugador NEGRO\n";
+            }
+        }
+        else {
+            if (--tiempoNegro <= 0) {
+                tiempoNegro = 0;
+                tiempoFinalizado = true;
+                std::cout << "¡Tiempo agotado! Gana el jugador BLANCO\n";
+            }
+        }
+    }
+
     glutTimerFunc(25, OnTimer, 0);
     glutPostRedisplay();
 }
@@ -88,7 +119,9 @@ int main(int argc, char* argv[]) {
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluOrtho2D(-5.5f, 5.5f, -5.0f, 5.0f);
+    gluOrtho2D(-5.5f, 7.0f, -5.0f, 5.0f); // Ampliar espacio para mostrar reloj
+
+    lastTick = glutGet(GLUT_ELAPSED_TIME);
 
     glutDisplayFunc(OnDraw);
     glutMouseFunc(OnMouse);
@@ -99,5 +132,6 @@ int main(int argc, char* argv[]) {
     glutMainLoop();
     return 0;
 }
+
 
 

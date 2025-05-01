@@ -23,7 +23,12 @@ public:
 
     void inicializar();
     void imprimir() const;
+
+private:
+    bool esCasillaFinalPromocionable(const Coordenada& c, Color color) const;
 };
+
+
 
 
 
