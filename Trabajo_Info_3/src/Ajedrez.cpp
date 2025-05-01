@@ -4,8 +4,8 @@
 #include <optional>
 #include <iostream>
 
-// Reloj
-int tiempoBlanco = 3;
+// === RELOJ ===
+int tiempoBlanco = 300;
 int tiempoNegro = 300;
 bool tiempoFinalizado = false;
 int lastTick = 0;
@@ -33,13 +33,13 @@ void OnDraw() {
 }
 
 void OnMouse(int button, int state, int x, int y) {
-    if (tiempoFinalizado) return; // Bloqueo por tiempo agotado
-
-    if (button != GLUT_LEFT_BUTTON || state != GLUT_DOWN)
-        return;
+    if (tiempoFinalizado) return;
+    if (button != GLUT_LEFT_BUTTON || state != GLUT_DOWN) return;
 
     int w = glutGet(GLUT_WINDOW_WIDTH);
     int h = glutGet(GLUT_WINDOW_HEIGHT);
+
+    // Conversión ajustada con ortho corregido
     float glX = -5.5f + (float)x / w * 11.0f;
     float glY = 5.0f - (float)y / h * 10.0f;
 
@@ -119,7 +119,7 @@ int main(int argc, char* argv[]) {
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluOrtho2D(-5.5f, 7.0f, -5.0f, 5.0f); // Ampliar espacio para mostrar reloj
+    gluOrtho2D(-5.5f, 5.5f, -5.0f, 5.0f); // ✅ proyección alineada al tablero
 
     lastTick = glutGet(GLUT_ELAPSED_TIME);
 
@@ -132,6 +132,7 @@ int main(int argc, char* argv[]) {
     glutMainLoop();
     return 0;
 }
+
 
 
 

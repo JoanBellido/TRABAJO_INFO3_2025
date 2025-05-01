@@ -52,7 +52,7 @@
               "RelativeDocumentMoniker": "src\\Ajedrez.cpp",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp",
               "RelativeToolTip": "src\\Ajedrez.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAuwIYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-10T10:16:06.769Z",
               "EditorCaption": ""
@@ -67,8 +67,7 @@
               "RelativeToolTip": "TableroLogico.cpp",
               "ViewState": "AgIAAJAAAAAAAAAAAAAAAKIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-24T08:01:02.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T08:01:02.023Z"
             },
             {
               "$type": "Document",
@@ -80,8 +79,7 @@
               "RelativeToolTip": "src\\TableroLogico.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-24T08:00:51.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T08:00:51.337Z"
             },
             {
               "$type": "Document",
@@ -93,8 +91,7 @@
               "RelativeToolTip": "pieza.cpp",
               "ViewState": "AgIAAFYAAAAAAAAAAAAAwGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-24T07:51:18.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T07:51:18.85Z"
             },
             {
               "$type": "Document",
@@ -106,8 +103,7 @@
               "RelativeToolTip": "src\\pieza.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-24T07:51:14.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-24T07:51:14.972Z"
             },
             {
               "$type": "Document",
@@ -119,8 +115,7 @@
               "RelativeToolTip": "src\\tableroVisual.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-16T08:54:26.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T08:54:26.888Z"
             },
             {
               "$type": "Document",
@@ -132,13 +127,12 @@
               "RelativeToolTip": "src\\tableroVisual.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-16T08:54:31.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-16T08:54:31.516Z"
             }
           ]
         },
         {
-          "DockedHeight": 36,
+          "DockedHeight": 72,
           "SelectedChildIndex": -1,
           "Children": [
             {
