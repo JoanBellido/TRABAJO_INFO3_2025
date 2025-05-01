@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\pieza.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\pieza.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\pieza.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:pieza.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Ajedrez.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\TableroLogico.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -19,16 +15,20 @@
       "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\TableroLogico.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\tableroVisual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\tableroVisual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Ajedrez.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\tableroVisual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\pieza.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\pieza.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\pieza.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:pieza.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,68 +38,69 @@
       "DocumentGroups": [
         {
           "DockedHeight": 147,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Ajedrez.cpp",
               "DocumentMoniker": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp",
               "RelativeDocumentMoniker": "src\\Ajedrez.cpp",
               "ToolTip": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp",
               "RelativeToolTip": "src\\Ajedrez.cpp",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAAGUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-10T10:16:06.769Z"
+              "WhenOpened": "2025-04-10T10:16:06.769Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "TableroLogico.cpp",
               "DocumentMoniker": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\TableroLogico.cpp",
               "RelativeDocumentMoniker": "TableroLogico.cpp",
               "ToolTip": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\TableroLogico.cpp",
               "RelativeToolTip": "TableroLogico.cpp",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAAHQAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAACUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-24T08:01:02.023Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "TableroLogico.h",
               "DocumentMoniker": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.h",
               "RelativeDocumentMoniker": "src\\TableroLogico.h",
               "ToolTip": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.h",
               "RelativeToolTip": "src\\TableroLogico.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-04-24T08:00:51.337Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "pieza.cpp",
               "DocumentMoniker": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\pieza.cpp",
               "RelativeDocumentMoniker": "pieza.cpp",
               "ToolTip": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\pieza.cpp",
               "RelativeToolTip": "pieza.cpp",
-              "ViewState": "AgIAABEAAAAAAAAAAAAIwBwAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAACMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-24T07:51:18.85Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "pieza.h",
               "DocumentMoniker": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\pieza.h",
               "RelativeDocumentMoniker": "src\\pieza.h",
               "ToolTip": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\pieza.h",
               "RelativeToolTip": "src\\pieza.h",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-04-24T07:51:14.972Z",
               "EditorCaption": ""
@@ -119,13 +120,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "tableroVisual.cpp",
               "DocumentMoniker": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp",
               "RelativeDocumentMoniker": "src\\tableroVisual.cpp",
               "ToolTip": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp",
               "RelativeToolTip": "src\\tableroVisual.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-16T08:54:31.516Z",
               "EditorCaption": ""
