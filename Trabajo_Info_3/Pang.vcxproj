@@ -19,15 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pieza.cpp" />
     <ClCompile Include="src\Ajedrez.cpp" />
+    <ClCompile Include="src\Menu.cpp" />
+    <ClCompile Include="src\pieza.cpp" />
+    <ClCompile Include="src\TableroLogico.cpp" />
     <ClCompile Include="src\tableroVisual.cpp" />
-    <ClCompile Include="TableroLogico.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\pieza.h" />
-    <ClInclude Include="src\tableroVisual.h" />
-    <ClInclude Include="src\TableroLogico.h" />
+    <ClInclude Include="include\Menu.h" />
+    <ClInclude Include="include\pieza.h" />
+    <ClInclude Include="include\TableroLogico.h" />
+    <ClInclude Include="include\tableroVisual.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -130,7 +132,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>lib;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>lib;include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>

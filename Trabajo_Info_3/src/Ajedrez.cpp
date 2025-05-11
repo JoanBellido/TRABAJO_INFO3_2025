@@ -1,14 +1,17 @@
 ﻿#include "freeglut.h"
 #include "TableroLogico.h"
 #include "TableroVisual.h"
+#include "Menu.h"
 #include <optional>
 #include <iostream>
 
-// === RELOJ ===
 int tiempoBlanco = 300;
 int tiempoNegro = 300;
 bool tiempoFinalizado = false;
 int lastTick = 0;
+
+Menu menu;
+EstadoJuego estadoJuego = EstadoJuego::MENU;
 
 TableroLogico tableroLogico;
 TableroVisual tableroVisual(&tableroLogico, 1.0f);
@@ -24,6 +27,11 @@ bool casillaActiva(int fila, int col) {
 }
 
 void OnDraw() {
+    if (estadoJuego == EstadoJuego::MENU) {
+        menu.dibujar();
+        return;
+    }
+
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
@@ -33,15 +41,20 @@ void OnDraw() {
 }
 
 void OnMouse(int button, int state, int x, int y) {
-    if (tiempoFinalizado) return;
     if (button != GLUT_LEFT_BUTTON || state != GLUT_DOWN) return;
 
     int w = glutGet(GLUT_WINDOW_WIDTH);
     int h = glutGet(GLUT_WINDOW_HEIGHT);
-
-    // Conversión ajustada con ortho corregido
     float glX = -5.5f + (float)x / w * 11.0f;
     float glY = 5.0f - (float)y / h * 10.0f;
+
+    if (estadoJuego == EstadoJuego::MENU) {
+        menu.procesarClic(glX, glY, estadoJuego, &tableroLogico);
+        glutPostRedisplay();
+        return;
+    }
+
+    if (tiempoFinalizado) return;
 
     int fila = static_cast<int>(5.0f - glY);
     int col = static_cast<int>(glX + 5.5f);
@@ -88,7 +101,7 @@ void OnKeyboardDown(unsigned char key, int, int) {
 
 void OnTimer(int value) {
     int now = glutGet(GLUT_ELAPSED_TIME);
-    if (!tiempoFinalizado && now - lastTick >= 1000) {
+    if (!tiempoFinalizado && now - lastTick >= 1000 && estadoJuego == EstadoJuego::JUGANDO) {
         lastTick = now;
 
         if (tableroLogico.getTurno() == Color::BLANCO) {
@@ -119,7 +132,7 @@ int main(int argc, char* argv[]) {
 
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluOrtho2D(-5.5f, 5.5f, -5.0f, 5.0f); // ✅ proyección alineada al tablero
+    gluOrtho2D(-5.5f, 5.5f, -5.0f, 5.0f);
 
     lastTick = glutGet(GLUT_ELAPSED_TIME);
 
@@ -128,7 +141,6 @@ int main(int argc, char* argv[]) {
     glutKeyboardFunc(OnKeyboardDown);
     glutTimerFunc(25, OnTimer, 0);
 
-    tableroLogico.inicializar();
     glutMainLoop();
     return 0;
 }
