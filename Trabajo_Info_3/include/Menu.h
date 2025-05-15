@@ -6,7 +6,7 @@ enum class EstadoJuego {
     JUGANDO
 };
 
-class TableroLogico; // Declaración adelantada
+class TableroLogico; 
 
 class Menu {
 public:

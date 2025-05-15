@@ -49,7 +49,7 @@ void Menu::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, TableroL
         estadoJuego = EstadoJuego::JUGANDO;
     }
     else if (clicEnBoton(glX, glY, botonVsIA)) {
-        logico->inicializar(); // por ahora mismo comportamiento
+        logico->inicializar(); 
         estadoJuego = EstadoJuego::JUGANDO;
     }
 }

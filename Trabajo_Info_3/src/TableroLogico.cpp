@@ -1,6 +1,6 @@
 ﻿#include "TableroLogico.h"
 #include <iostream>
-#include <cctype> // para std::tolower
+#include <cctype> 
 
 TableroLogico::TableroLogico() : turno(Color::BLANCO) {
     for (int i = 0; i < 10; ++i)
@@ -39,7 +39,7 @@ bool TableroLogico::mover(const Coordenada& origen, const Coordenada& destino) {
     for (const auto& m : movimientos) {
         if (m.fila == destino.fila && m.col == destino.col) {
 
-            // --- Desactivar doble paso si es peón no promovido ---
+           
             bool seraPromovido = dynamic_cast<Peon*>(p) && esCasillaFinalPromocionable(destino, p->getColor());
             if (auto peon = dynamic_cast<Peon*>(p); peon && !seraPromovido) {
                 peon->desactivarPrimerMovimiento();

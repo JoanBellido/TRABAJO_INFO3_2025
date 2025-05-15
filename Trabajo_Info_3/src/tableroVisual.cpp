@@ -1,7 +1,7 @@
 ﻿#include "TableroVisual.h"
 #include <string>
 
-// Acceso a variables globales de tiempo
+
 extern int tiempoBlanco, tiempoNegro;
 
 TableroVisual::TableroVisual(TableroLogico* logico, float tam)
@@ -84,6 +84,42 @@ void TableroVisual::dibuja() {
     // Dibuja relojes a la derecha del tablero
     dibujaReloj(tiempoBlanco, 3.2f, 4.0f, "Blanco");
     dibujaReloj(tiempoNegro, 3.2f, -4.0f, "Negro");
+
+    // Mostrar el turno actual en el lateral izquierdo
+    Color turnoActual = logico->getTurno();
+    float turnoX = -5.2f;
+    float turnoY = (turnoActual == Color::BLANCO) ? 4.0f : -4.0f;
+
+    // Fondo de turno con color temático
+    float r = (turnoActual == Color::BLANCO) ? 0.95f : 0.2f;
+    float g = (turnoActual == Color::BLANCO) ? 0.95f : 0.2f;
+    float b = (turnoActual == Color::BLANCO) ? 1.0f : 0.2f;
+
+    glColor3f(r, g, b);
+    glBegin(GL_QUADS);
+    glVertex2f(turnoX - 0.2f, turnoY + 0.3f);
+    glVertex2f(turnoX + 2.4f, turnoY + 0.3f);
+    glVertex2f(turnoX + 2.4f, turnoY - 0.3f);
+    glVertex2f(turnoX - 0.2f, turnoY - 0.3f);
+    glEnd();
+
+    // Borde decorativo
+    glColor3f(0.2f, 0.2f, 0.2f);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(turnoX - 0.2f, turnoY + 0.3f);
+    glVertex2f(turnoX + 2.4f, turnoY + 0.3f);
+    glVertex2f(turnoX + 2.4f, turnoY - 0.3f);
+    glVertex2f(turnoX - 0.2f, turnoY - 0.3f);
+    glEnd();
+
+    // Texto de turno
+    glColor3f(0, 0, 0);
+    glRasterPos2f(turnoX + 0.2f, turnoY - 0.05f);
+    std::string textoTurno = "Turno: " + std::string(turnoActual == Color::BLANCO ? "Blanco" : "Negro");
+    for (char c : textoTurno)
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+
+
 }
 
 
