@@ -9,8 +9,8 @@ TableroVisual::TableroVisual(TableroLogico* logico, float tam)
 }
 
 void TableroVisual::dibujaReloj(int tiempo, float x, float y, const char* label) {
-    // Fondo del reloj
-    glColor3f(0.95f, 0.95f, 0.95f); // gris claro
+    
+    glColor3f(0.95f, 0.95f, 0.95f); 
     glBegin(GL_QUADS);
     glVertex2f(x - 0.2f, y + 0.3f);
     glVertex2f(x + 2.2f, y + 0.3f);
@@ -18,7 +18,7 @@ void TableroVisual::dibujaReloj(int tiempo, float x, float y, const char* label)
     glVertex2f(x - 0.2f, y - 0.4f);
     glEnd();
 
-    // Borde
+    
     glColor3f(0.2f, 0.2f, 0.2f);
     glBegin(GL_LINE_LOOP);
     glVertex2f(x - 0.2f, y + 0.3f);

@@ -56,7 +56,7 @@
         },
         {
           "DockedHeight": 315,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -68,39 +68,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TableroLogico.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.cpp",
-              "RelativeDocumentMoniker": "src\\TableroLogico.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.cpp",
-              "RelativeToolTip": "src\\TableroLogico.cpp",
-              "ViewState": "AgIAAKgAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-15T12:44:58.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "pieza.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\pieza.cpp",
-              "RelativeDocumentMoniker": "src\\pieza.cpp",
-              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\pieza.cpp",
-              "RelativeToolTip": "src\\pieza.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-15T12:44:53.04Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Menu.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Menu.cpp",
               "RelativeDocumentMoniker": "src\\Menu.cpp",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Menu.cpp",
               "RelativeToolTip": "src\\Menu.cpp",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAADMAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-15T12:44:46.366Z",
               "EditorCaption": ""
@@ -113,7 +87,7 @@
               "RelativeDocumentMoniker": "src\\Ajedrez.cpp",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp",
               "RelativeToolTip": "src\\Ajedrez.cpp",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-15T12:44:40.971Z",
               "EditorCaption": ""
@@ -139,7 +113,7 @@
               "RelativeDocumentMoniker": "include\\TableroLogico.h",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\TableroLogico.h",
               "RelativeToolTip": "include\\TableroLogico.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAABoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-15T12:44:36.219Z",
               "EditorCaption": ""
@@ -152,7 +126,7 @@
               "RelativeDocumentMoniker": "include\\pieza.h",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\pieza.h",
               "RelativeToolTip": "include\\pieza.h",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-05-15T12:44:32.201Z",
               "EditorCaption": ""
@@ -165,9 +139,35 @@
               "RelativeDocumentMoniker": "src\\tableroVisual.cpp",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp",
               "RelativeToolTip": "src\\tableroVisual.cpp",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAABQAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-15T12:38:15.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TableroLogico.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.cpp",
+              "RelativeDocumentMoniker": "src\\TableroLogico.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.cpp",
+              "RelativeToolTip": "src\\TableroLogico.cpp",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAAAPgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-15T12:44:58.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "pieza.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\pieza.cpp",
+              "RelativeDocumentMoniker": "src\\pieza.cpp",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\pieza.cpp",
+              "RelativeToolTip": "src\\pieza.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-15T12:44:53.04Z",
               "EditorCaption": ""
             },
             {

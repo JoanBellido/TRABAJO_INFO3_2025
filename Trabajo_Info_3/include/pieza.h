@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 
-enum class Color { BLANCO, NEGRO };
+enum Color { BLANCO, NEGRO }; 
 
 struct Coordenada {
     int fila;
@@ -13,6 +13,7 @@ class TableroLogico;
 class Pieza {
 protected:
     Color color;
+
 public:
     Pieza(Color c) : color(c) {}
     virtual ~Pieza() = default;
@@ -69,6 +70,7 @@ public:
     char getID() const override { return 'C'; }
     std::vector<Coordenada> movimientos_validos(const Coordenada&, const TableroLogico&) const override;
 };
+
 
 
 

@@ -77,6 +77,18 @@ void OnMouse(int button, int state, int x, int y) {
     else {
         if (tableroLogico.mover(*seleccion, clic)) {
             std::cout << "Movimiento realizado a [" << clic.fila << "," << clic.col << "]\n";
+
+            
+            Color turnoTrasMovimiento = tableroLogico.getTurno();
+            if (tableroLogico.reyEnJaque(turnoTrasMovimiento)) {
+                std::cout << "¡Estás en jaque!\n";
+
+                if (tableroLogico.esJaqueMate(turnoTrasMovimiento)) {
+                    std::cout << "¡Jaque mate! Gana el jugador " << (turnoTrasMovimiento == BLANCO ? "NEGRO" : "BLANCO") << "\n";
+                    tiempoFinalizado = true;
+                }
+            }
+
         }
         else {
             std::cout << "Movimiento inválido\n";
@@ -86,6 +98,7 @@ void OnMouse(int button, int state, int x, int y) {
 
     glutPostRedisplay();
 }
+
 
 void OnKeyboardDown(unsigned char key, int, int) {
     if (key == 'r') {
@@ -104,7 +117,7 @@ void OnTimer(int value) {
     if (!tiempoFinalizado && now - lastTick >= 1000 && estadoJuego == EstadoJuego::JUGANDO) {
         lastTick = now;
 
-        if (tableroLogico.getTurno() == Color::BLANCO) {
+        if (tableroLogico.getTurno() == BLANCO) {
             if (--tiempoBlanco <= 0) {
                 tiempoBlanco = 0;
                 tiempoFinalizado = true;
@@ -144,7 +157,6 @@ int main(int argc, char* argv[]) {
     glutMainLoop();
     return 0;
 }
-
 
 
 

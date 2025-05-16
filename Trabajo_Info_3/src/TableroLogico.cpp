@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cctype> 
 
-TableroLogico::TableroLogico() : turno(Color::BLANCO) {
+TableroLogico::TableroLogico() : turno(BLANCO) {
     for (int i = 0; i < 10; ++i)
         cuadricula.push_back(std::vector<Pieza*>(11, nullptr));
 }
@@ -39,33 +39,48 @@ bool TableroLogico::mover(const Coordenada& origen, const Coordenada& destino) {
     for (const auto& m : movimientos) {
         if (m.fila == destino.fila && m.col == destino.col) {
 
-           
-            bool seraPromovido = dynamic_cast<Peon*>(p) && esCasillaFinalPromocionable(destino, p->getColor());
-            if (auto peon = dynamic_cast<Peon*>(p); peon && !seraPromovido) {
+            Pieza* piezaOrigen = getPieza(origen);
+            Pieza* piezaDestino = getPieza(destino);
+
+            
+            cuadricula[destino.fila][destino.col] = piezaOrigen;
+            cuadricula[origen.fila][origen.col] = nullptr;
+
+            
+            if (reyEnJaque(turno)) {
+                
+                cuadricula[origen.fila][origen.col] = piezaOrigen;
+                cuadricula[destino.fila][destino.col] = piezaDestino;
+                std::cout << "No puedes dejar tu rey en jaque.\n";
+                return false;
+            }
+
+            
+            delete piezaDestino;
+
+            
+            bool seraPromovido = dynamic_cast<Peon*>(piezaOrigen) && esCasillaFinalPromocionable(destino, piezaOrigen->getColor());
+            if (auto peon = dynamic_cast<Peon*>(piezaOrigen); peon && !seraPromovido) {
                 peon->desactivarPrimerMovimiento();
             }
 
-            delete cuadricula[destino.fila][destino.col];
-            cuadricula[destino.fila][destino.col] = p;
-            cuadricula[origen.fila][origen.col] = nullptr;
-
-            // --- PROMOCIÓN DE PEÓN ---
-            if (dynamic_cast<Peon*>(p) && seraPromovido) {
+            
+            if (dynamic_cast<Peon*>(piezaOrigen) && seraPromovido) {
                 char opcion;
                 std::cout << "Promoción de peón. Elige pieza (Q: Reina, T: Torre, A: Alfil, C: Caballo): ";
                 std::cin >> opcion;
                 opcion = std::tolower(opcion);
 
-                delete p;
+                delete piezaOrigen;
                 switch (opcion) {
-                case 'q': p = new Reina(turno); break;
-                case 't': p = new Torre(turno); break;
-                case 'a': p = new Alfil(turno); break;
-                case 'c': p = new Caballo(turno); break;
-                default:  p = new Reina(turno); break;
+                case 'q': piezaOrigen = new Reina(turno); break;
+                case 't': piezaOrigen = new Torre(turno); break;
+                case 'a': piezaOrigen = new Alfil(turno); break;
+                case 'c': piezaOrigen = new Caballo(turno); break;
+                default:  piezaOrigen = new Reina(turno); break;
                 }
 
-                cuadricula[destino.fila][destino.col] = p;
+                cuadricula[destino.fila][destino.col] = piezaOrigen;
             }
 
             cambiarTurno();
@@ -76,8 +91,9 @@ bool TableroLogico::mover(const Coordenada& origen, const Coordenada& destino) {
     return false;
 }
 
+
 void TableroLogico::cambiarTurno() {
-    turno = (turno == Color::BLANCO) ? Color::NEGRO : Color::BLANCO;
+    turno = (turno == BLANCO) ? NEGRO : BLANCO;
 }
 
 int TableroLogico::filas() const {
@@ -98,7 +114,7 @@ bool TableroLogico::coordenadaValida(const Coordenada& c) const {
 
 bool TableroLogico::esCasillaFinalPromocionable(const Coordenada& c, Color color) const {
     if (!coordenadaValida(c)) return false;
-    if (color == Color::BLANCO) {
+    if (color == BLANCO) {
         return (c.fila == 9) || (c.fila == 8 && (c.col == 3 || c.col == 7));
     }
     else {
@@ -111,33 +127,33 @@ void TableroLogico::inicializar() {
         for (auto& casilla : fila)
             delete casilla, casilla = nullptr;
 
-    turno = Color::BLANCO;
+    turno = BLANCO;
 
-    asignar({ 0, 4 }, new Reina(Color::BLANCO));
-    asignar({ 0, 5 }, new Alfil(Color::BLANCO));
-    asignar({ 0, 6 }, new Rey(Color::BLANCO));
+    asignar({ 0, 4 }, new Reina(BLANCO));
+    asignar({ 0, 5 }, new Alfil(BLANCO));
+    asignar({ 0, 6 }, new Rey(BLANCO));
 
-    asignar({ 1, 3 }, new Torre(Color::BLANCO));
-    asignar({ 1, 4 }, new Caballo(Color::BLANCO));
-    asignar({ 1, 5 }, new Alfil(Color::BLANCO));
-    asignar({ 1, 6 }, new Caballo(Color::BLANCO));
-    asignar({ 1, 7 }, new Torre(Color::BLANCO));
-
-    for (int j = 2; j <= 8; ++j)
-        asignar({ 2, j }, new Peon(Color::BLANCO));
+    asignar({ 1, 3 }, new Torre(BLANCO));
+    asignar({ 1, 4 }, new Caballo(BLANCO));
+    asignar({ 1, 5 }, new Alfil(BLANCO));
+    asignar({ 1, 6 }, new Caballo(BLANCO));
+    asignar({ 1, 7 }, new Torre(BLANCO));
 
     for (int j = 2; j <= 8; ++j)
-        asignar({ 7, j }, new Peon(Color::NEGRO));
+        asignar({ 2, j }, new Peon(BLANCO));
 
-    asignar({ 8, 3 }, new Torre(Color::NEGRO));
-    asignar({ 8, 4 }, new Caballo(Color::NEGRO));
-    asignar({ 8, 5 }, new Alfil(Color::NEGRO));
-    asignar({ 8, 6 }, new Caballo(Color::NEGRO));
-    asignar({ 8, 7 }, new Torre(Color::NEGRO));
+    for (int j = 2; j <= 8; ++j)
+        asignar({ 7, j }, new Peon(NEGRO));
 
-    asignar({ 9, 4 }, new Reina(Color::NEGRO));
-    asignar({ 9, 5 }, new Alfil(Color::NEGRO));
-    asignar({ 9, 6 }, new Rey(Color::NEGRO));
+    asignar({ 8, 3 }, new Torre(NEGRO));
+    asignar({ 8, 4 }, new Caballo(NEGRO));
+    asignar({ 8, 5 }, new Alfil(NEGRO));
+    asignar({ 8, 6 }, new Caballo(NEGRO));
+    asignar({ 8, 7 }, new Torre(NEGRO));
+
+    asignar({ 9, 4 }, new Reina(NEGRO));
+    asignar({ 9, 5 }, new Alfil(NEGRO));
+    asignar({ 9, 6 }, new Rey(NEGRO));
 
     imprimir();
 }
@@ -149,7 +165,7 @@ void TableroLogico::imprimir() const {
             if (coordenadaValida({ i, j })) {
                 Pieza* p = cuadricula[i][j];
                 if (p)
-                    std::cout << (p->getColor() == Color::BLANCO ? 'B' : 'N') << p->getID() << " ";
+                    std::cout << (p->getColor() == BLANCO ? 'B' : 'N') << p->getID() << " ";
                 else
                     std::cout << "-- ";
             }
@@ -160,6 +176,79 @@ void TableroLogico::imprimir() const {
         std::cout << std::endl;
     }
 }
+
+
+bool TableroLogico::reyEnJaque(Color colorRey) const {
+    Coordenada posRey = { -1, -1 };
+
+    
+    for (int i = 0; i < filas(); ++i) {
+        for (int j = 0; j < columnas(i); ++j) {
+            Coordenada c = { i, j };
+            if (!coordenadaValida(c)) continue;
+
+            Pieza* p = getPieza(c);
+            if (p && p->getColor() == colorRey && p->getID() == 'R') {
+                posRey = c;
+                break;
+            }
+        }
+    }
+
+    if (posRey.fila == -1) return false;
+
+    
+    for (int i = 0; i < filas(); ++i) {
+        for (int j = 0; j < columnas(i); ++j) {
+            Coordenada c = { i, j };
+            if (!coordenadaValida(c)) continue;
+
+            Pieza* p = getPieza(c);
+            if (p && p->getColor() != colorRey) {
+                auto movs = p->movimientos_validos(c, *this);
+                for (const auto& m : movs) {
+                    if (m.fila == posRey.fila && m.col == posRey.col)
+                        return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+bool TableroLogico::esJaqueMate(Color color) {
+    if (!reyEnJaque(color))
+        return false;
+
+    
+    for (int i = 0; i < filas(); ++i) {
+        for (int j = 0; j < columnas(i); ++j) {
+            Coordenada origen = { i, j };
+            Pieza* p = getPieza(origen);
+            if (p && p->getColor() == color) {
+                auto posibles = p->movimientos_validos(origen, *this);
+                for (const Coordenada& destino : posibles) {
+                    
+                    Pieza* capturada = getPieza(destino);
+                    cuadricula[destino.fila][destino.col] = p;
+                    cuadricula[origen.fila][origen.col] = nullptr;
+
+                    bool sigueEnJaque = reyEnJaque(color);
+
+                    
+                    cuadricula[origen.fila][origen.col] = p;
+                    cuadricula[destino.fila][destino.col] = capturada;
+
+                    if (!sigueEnJaque)
+                        return false;
+                }
+            }
+        }
+    }
+
+    return true; 
+}
+
 
 
 

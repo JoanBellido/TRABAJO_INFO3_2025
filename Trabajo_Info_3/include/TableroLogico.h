@@ -24,9 +24,12 @@ public:
     void inicializar();
     void imprimir() const;
 
+    bool reyEnJaque(Color colorRey) const; 
+    bool esJaqueMate(Color color);
 private:
     bool esCasillaFinalPromocionable(const Coordenada& c, Color color) const;
 };
+
 
 
 

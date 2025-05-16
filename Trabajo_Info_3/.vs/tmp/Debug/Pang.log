@@ -1,2 +1,7 @@
-﻿  tableroVisual.cpp
+﻿  Ajedrez.cpp
+  Menu.cpp
+  TableroLogico.cpp
+  pieza.cpp
+  tableroVisual.cpp
+  Generando código...
   Pang.vcxproj -> C:\Users\User\Documents\GitHub\TRABAJO_INFO3_2025\Trabajo_Info_3\bin\Pang.exe

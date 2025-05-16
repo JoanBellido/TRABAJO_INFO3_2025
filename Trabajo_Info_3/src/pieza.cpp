@@ -1,7 +1,7 @@
 #include "pieza.h"
 #include "TableroLogico.h"
 
-bool valida_y_añade(std::vector<Coordenada>& lista, const Coordenada& c, const TableroLogico& t, Color) {
+bool valida_y_añade(std::vector<Coordenada>& lista, const Coordenada& c, const TableroLogico& t, Color color) {
     if (!t.coordenadaValida(c)) return false;
     Pieza* destino = t.getPieza(c);
 
@@ -11,7 +11,7 @@ bool valida_y_añade(std::vector<Coordenada>& lista, const Coordenada& c, const T
 
 std::vector<Coordenada> Peon::movimientos_validos(const Coordenada& o, const TableroLogico& t) const {
     std::vector<Coordenada> movs;
-    int dir = (color == Color::BLANCO) ? 1 : -1;
+    int dir = (color == BLANCO) ? 1 : -1;
 
     Coordenada adelante = { o.fila + dir, o.col };
     if (t.coordenadaValida(adelante) && t.getPieza(adelante) == nullptr) {
