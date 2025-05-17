@@ -31,7 +31,7 @@ void OnDraw() {
         menu.dibujar();
         return;
     }
-
+    
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
@@ -71,13 +71,15 @@ void OnMouse(int button, int state, int x, int y) {
             std::cout << "Seleccionada pieza " << p->getID() << " en [" << fila << "," << col << "]\n";
         }
         else {
-            std::cout << "Seleccion inválida\n";
+            std::cout << "Seleccion invalida\n";
         }
     }
     else {
         if (tableroLogico.mover(*seleccion, clic)) {
-            std::cout << "Movimiento realizado a [" << clic.fila << "," << clic.col << "]\n";
 
+            system("cls");//limpiar consola
+            tableroLogico.imprimir();
+            std::cout << "Movimiento realizado a [" << clic.fila << "," << clic.col << "]\n";
             
             Color turnoTrasMovimiento = tableroLogico.getTurno();
             if (tableroLogico.reyEnJaque(turnoTrasMovimiento)) {
@@ -91,7 +93,7 @@ void OnMouse(int button, int state, int x, int y) {
 
         }
         else {
-            std::cout << "Movimiento inválido\n";
+            std::cout << "Movimiento invalido\n";
         }
         seleccion.reset();
     }
@@ -101,13 +103,28 @@ void OnMouse(int button, int state, int x, int y) {
 
 
 void OnKeyboardDown(unsigned char key, int, int) {
-    if (key == 'r') {
-        tableroLogico.inicializar();
+    if (key == 'r') {//reinicar el juego
         seleccion.reset();
         tiempoBlanco = 300;
         tiempoNegro = 300;
         tiempoFinalizado = false;
         std::cout << "Tablero y reloj reiniciados\n";
+        system("cls"); //limpiar consola
+        tableroLogico.inicializar();
+    }
+
+    if (key == 27) { //secuencia para volver al menu, tecla ESC
+        //reseto del tablero
+        tableroLogico.inicializar();
+        seleccion.reset();
+        tiempoBlanco = 300;
+        tiempoNegro = 300;
+        tiempoFinalizado = false;
+        //retroceso:
+        estadoJuego = EstadoJuego::MENU;
+        menu.dibujar();
+        std::cout << "Atras\n";
+        system("cls");//limpiar consola
     }
     glutPostRedisplay();
 }

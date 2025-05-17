@@ -4,7 +4,8 @@
 
 Menu::Menu()
     : boton1vs1{ 0.0f, 1.0f, 4.0f, 1.4f, "Jugador vs Jugador" },
-    botonVsIA{ 0.0f, -1.0f, 4.0f, 1.4f, "Jugador vs Ordenador" } {
+    botonVsIA{ 0.0f, -1.0f, 4.0f, 1.4f, "Jugador vs Ordenador" }, 
+    botoncred{ 0.0f, -3.0f, 4.0f, 1.4f, "Creditos" } {
 }
 
 void Menu::dibujar() const {
@@ -12,13 +13,14 @@ void Menu::dibujar() const {
     glClear(GL_COLOR_BUFFER_BIT);
 
     glColor3f(0.1f, 0.1f, 0.3f);
-    glRasterPos2f(-2.0f, 3.0f);
+    glRasterPos2f(-2.0f, 2.5f);
     const char* titulo = "Ajedrez Balbo";
     for (const char* c = titulo; *c; ++c)
-        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *c);
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
 
     dibujarBoton(boton1vs1);
     dibujarBoton(botonVsIA);
+    dibujarBoton(botoncred);
 
     glutSwapBuffers();
 }
@@ -51,6 +53,11 @@ void Menu::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, TableroL
     else if (clicEnBoton(glX, glY, botonVsIA)) {
         logico->inicializar(); 
         estadoJuego = EstadoJuego::JUGANDO;
+    }
+
+    else if (clicEnBoton(glX, glY, botoncred)) {
+        logico->inicializar();
+        estadoJuego = EstadoJuego::CREDITOS;
     }
 }
 

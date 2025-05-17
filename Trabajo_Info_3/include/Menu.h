@@ -3,7 +3,8 @@
 
 enum class EstadoJuego {
     MENU,
-    JUGANDO
+    JUGANDO,
+    CREDITOS
 };
 
 class TableroLogico; 
@@ -24,6 +25,7 @@ private:
 
     Boton boton1vs1;
     Boton botonVsIA;
+    Boton botoncred; //falta por aclarar si es necesaria esta definición
 
     void dibujarBoton(const Boton& boton) const;
 };

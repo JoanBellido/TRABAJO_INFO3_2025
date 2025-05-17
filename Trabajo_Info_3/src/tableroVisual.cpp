@@ -1,7 +1,6 @@
 ﻿#include "TableroVisual.h"
 #include <string>
 
-
 extern int tiempoBlanco, tiempoNegro;
 
 TableroVisual::TableroVisual(TableroLogico* logico, float tam)
