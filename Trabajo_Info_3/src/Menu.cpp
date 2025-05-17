@@ -48,15 +48,16 @@ void Menu::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, TableroL
 
     if (clicEnBoton(glX, glY, boton1vs1)) {
         logico->inicializar();
+        logico->imprimir();
         estadoJuego = EstadoJuego::JUGANDO;
     }
     else if (clicEnBoton(glX, glY, botonVsIA)) {
         logico->inicializar(); 
+        logico->imprimir();
         estadoJuego = EstadoJuego::JUGANDO;
     }
 
     else if (clicEnBoton(glX, glY, botoncred)) {
-        logico->inicializar();
         estadoJuego = EstadoJuego::CREDITOS;
     }
 }

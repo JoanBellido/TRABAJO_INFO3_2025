@@ -155,7 +155,6 @@ void TableroLogico::inicializar() {
     asignar({ 9, 5 }, new Alfil(NEGRO));
     asignar({ 9, 6 }, new Rey(NEGRO));
 
-    imprimir();
 }
 
 void TableroLogico::imprimir() const {

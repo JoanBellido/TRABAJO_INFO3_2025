@@ -32,6 +32,51 @@ void OnDraw() {
         return;
     }
     
+    if (estadoJuego == EstadoJuego::CREDITOS) {
+        glClearColor(0.9f, 0.9f, 0.95f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        glColor3f(0.1f, 0.1f, 0.1f);
+        glRasterPos2f(-2.0f, 2.5f);
+        const char* titulo = "Equipo G08";
+        for (const char* c = titulo; *c; ++c)
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+
+        glRasterPos2f(-2.0f, 2.0f);
+        const char* linea1 = "Sergio Ballesteros Palomo";
+        for (const char* c = linea1; *c; ++c)
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+
+        glRasterPos2f(-2.0f, 1.5f);
+        const char* linea2 = "Joan Bellido Ines";
+        for (const char* c = linea2; *c; ++c)
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+
+        glRasterPos2f(-2.0f, 1.0f);
+        const char* linea3 = "Nuria Garrido Gimenez";
+        for (const char* c = linea3; *c; ++c)
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+
+        glRasterPos2f(-2.0f, 0.5f);
+        const char* linea4 = "Matias Gabriel Polo Reyes";
+        for (const char* c = linea4; *c; ++c)
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+
+        glRasterPos2f(-2.0f, 0.0f);
+        const char* linea5 = "Manuel Gutierrez Huerta";
+        for (const char* c = linea5; *c; ++c)
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+
+        glRasterPos2f(-2.0f, -1.2f);
+        const char* volver = "Presiona ESC para volver al menu";
+        for (const char* c = volver; *c; ++c)
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+
+        glutSwapBuffers();
+        return;
+    }
+
+    //en caso de estar jugando
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
@@ -111,6 +156,7 @@ void OnKeyboardDown(unsigned char key, int, int) {
         std::cout << "Tablero y reloj reiniciados\n";
         system("cls"); //limpiar consola
         tableroLogico.inicializar();
+        tableroLogico.imprimir();
     }
 
     if (key == 27) { //secuencia para volver al menu, tecla ESC
@@ -123,7 +169,6 @@ void OnKeyboardDown(unsigned char key, int, int) {
         //retroceso:
         estadoJuego = EstadoJuego::MENU;
         menu.dibujar();
-        std::cout << "Atras\n";
         system("cls");//limpiar consola
     }
     glutPostRedisplay();
