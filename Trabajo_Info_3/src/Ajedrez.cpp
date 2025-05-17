@@ -4,11 +4,13 @@
 #include "Menu.h"
 #include <optional>
 #include <iostream>
+#include <string>
 
 int tiempoBlanco = 300;
 int tiempoNegro = 300;
 bool tiempoFinalizado = false;
 int lastTick = 0;
+std::string mensajeEstado = "";  // NUEVO
 
 Menu menu;
 EstadoJuego estadoJuego = EstadoJuego::MENU;
@@ -31,7 +33,7 @@ void OnDraw() {
         menu.dibujar();
         return;
     }
-    
+
     if (estadoJuego == EstadoJuego::CREDITOS) {
         glClearColor(0.9f, 0.9f, 0.95f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -42,30 +44,19 @@ void OnDraw() {
         for (const char* c = titulo; *c; ++c)
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
 
-        glRasterPos2f(-2.0f, 2.0f);
-        const char* linea1 = "Sergio Ballesteros Palomo";
-        for (const char* c = linea1; *c; ++c)
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
-
-        glRasterPos2f(-2.0f, 1.5f);
-        const char* linea2 = "Joan Bellido Ines";
-        for (const char* c = linea2; *c; ++c)
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
-
-        glRasterPos2f(-2.0f, 1.0f);
-        const char* linea3 = "Nuria Garrido Gimenez";
-        for (const char* c = linea3; *c; ++c)
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
-
-        glRasterPos2f(-2.0f, 0.5f);
-        const char* linea4 = "Matias Gabriel Polo Reyes";
-        for (const char* c = linea4; *c; ++c)
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
-
-        glRasterPos2f(-2.0f, 0.0f);
-        const char* linea5 = "Manuel Gutierrez Huerta";
-        for (const char* c = linea5; *c; ++c)
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+        const char* nombres[] = {
+            "Sergio Ballesteros Palomo",
+            "Joan Bellido Ines",
+            "Nuria Garrido Gimenez",
+            "Matias Gabriel Polo Reyes",
+            "Manuel Gutierrez Huerta"
+        };
+        float y = 2.0f;
+        for (int i = 0; i < 5; ++i, y -= 0.5f) {
+            glRasterPos2f(-2.0f, y);
+            for (const char* c = nombres[i]; *c; ++c)
+                glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
+        }
 
         glRasterPos2f(-2.0f, -1.2f);
         const char* volver = "Presiona ESC para volver al menu";
@@ -76,12 +67,20 @@ void OnDraw() {
         return;
     }
 
-    //en caso de estar jugando
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     tableroVisual.dibuja();
+
+    // Mostrar mensaje de estado si existe
+    if (!mensajeEstado.empty()) {
+        glColor3f(1.0f, 0.0f, 0.0f);
+        glRasterPos2f(-5.0f, 4.6f);
+        for (char c : mensajeEstado)
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+    }
+
     glutSwapBuffers();
 }
 
@@ -121,21 +120,22 @@ void OnMouse(int button, int state, int x, int y) {
     }
     else {
         if (tableroLogico.mover(*seleccion, clic)) {
-
-            system("cls");//limpiar consola
+            system("cls");
             tableroLogico.imprimir();
             std::cout << "Movimiento realizado a [" << clic.fila << "," << clic.col << "]\n";
-            
+
             Color turnoTrasMovimiento = tableroLogico.getTurno();
             if (tableroLogico.reyEnJaque(turnoTrasMovimiento)) {
-                std::cout << "¡Estás en jaque!\n";
-
+                mensajeEstado = "\u00a1Est\u00e1s en jaque!";
                 if (tableroLogico.esJaqueMate(turnoTrasMovimiento)) {
-                    std::cout << "¡Jaque mate! Gana el jugador " << (turnoTrasMovimiento == BLANCO ? "NEGRO" : "BLANCO") << "\n";
+                    mensajeEstado = "\u00a1Jaque mate! Gana el jugador ";
+                    mensajeEstado += (turnoTrasMovimiento == BLANCO ? "NEGRO" : "BLANCO");
                     tiempoFinalizado = true;
                 }
             }
-
+            else {
+                mensajeEstado = "";
+            }
         }
         else {
             std::cout << "Movimiento invalido\n";
@@ -146,30 +146,29 @@ void OnMouse(int button, int state, int x, int y) {
     glutPostRedisplay();
 }
 
-
 void OnKeyboardDown(unsigned char key, int, int) {
-    if (key == 'r') {//reinicar el juego
+    if (key == 'r') {
         seleccion.reset();
         tiempoBlanco = 300;
         tiempoNegro = 300;
         tiempoFinalizado = false;
+        mensajeEstado = "";
         std::cout << "Tablero y reloj reiniciados\n";
-        system("cls"); //limpiar consola
+        system("cls");
         tableroLogico.inicializar();
         tableroLogico.imprimir();
     }
 
-    if (key == 27) { //secuencia para volver al menu, tecla ESC
-        //reseto del tablero
+    if (key == 27) {
         tableroLogico.inicializar();
         seleccion.reset();
         tiempoBlanco = 300;
         tiempoNegro = 300;
         tiempoFinalizado = false;
-        //retroceso:
+        mensajeEstado = "";
         estadoJuego = EstadoJuego::MENU;
         menu.dibujar();
-        system("cls");//limpiar consola
+        system("cls");
     }
     glutPostRedisplay();
 }
@@ -183,14 +182,14 @@ void OnTimer(int value) {
             if (--tiempoBlanco <= 0) {
                 tiempoBlanco = 0;
                 tiempoFinalizado = true;
-                std::cout << "¡Tiempo agotado! Gana el jugador NEGRO\n";
+                mensajeEstado = "\u00a1Tiempo agotado! Gana el jugador NEGRO";
             }
         }
         else {
             if (--tiempoNegro <= 0) {
                 tiempoNegro = 0;
                 tiempoFinalizado = true;
-                std::cout << "¡Tiempo agotado! Gana el jugador BLANCO\n";
+                mensajeEstado = "\u00a1Tiempo agotado! Gana el jugador BLANCO";
             }
         }
     }
