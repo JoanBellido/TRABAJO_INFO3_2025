@@ -40,25 +40,27 @@ void Menu::dibujarBoton(const Boton& boton) const {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
 }
 
-void Menu::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, TableroLogico* logico) const {
+void Menu::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJuego& modoJuego, TableroLogico* logico) const {
     auto clicEnBoton = [](float x, float y, const Boton& b) {
         return x >= b.centroX - b.ancho / 2 && x <= b.centroX + b.ancho / 2 &&
             y >= b.centroY - b.alto / 2 && y <= b.centroY + b.alto / 2;
         };
 
     if (clicEnBoton(glX, glY, boton1vs1)) {
+        modoJuego = ModoJuego::JugadorVsJugador;
         logico->inicializar();
         logico->imprimir();
         estadoJuego = EstadoJuego::JUGANDO;
     }
     else if (clicEnBoton(glX, glY, botonVsIA)) {
-        logico->inicializar(); 
+        modoJuego = ModoJuego::JugadorVsIA;
+        logico->inicializar();
         logico->imprimir();
         estadoJuego = EstadoJuego::JUGANDO;
     }
-
     else if (clicEnBoton(glX, glY, botoncred)) {
         estadoJuego = EstadoJuego::CREDITOS;
     }
 }
+
 

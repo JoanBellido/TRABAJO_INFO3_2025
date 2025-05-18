@@ -250,7 +250,27 @@ bool TableroLogico::esJaqueMate(Color color) {
 
 
 
+bool TableroLogico::movimientoIA() {
+    srand(static_cast<unsigned int>(time(nullptr)));
 
+    for (int i = 0; i < filas(); ++i) {
+        for (int j = 0; j < columnas(i); ++j) {
+            Coordenada origen{ i, j };
+            Pieza* p = getPieza(origen);
+            if (p && p->getColor() == turno) {
+                auto destinos = p->movimientos_validos(origen, *this);
+                if (!destinos.empty()) {
+                    // Elige un movimiento aleatorio entre los válidos
+                    Coordenada destino = destinos[rand() % destinos.size()];
+                    if (mover(origen, destino)) {
+                        return true; // Movimiento hecho
+                    }
+                }
+            }
+        }
+    }
+    return false; // No encontró ningún movimiento válido
+}
 
 
 

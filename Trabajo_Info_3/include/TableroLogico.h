@@ -26,6 +26,8 @@ public:
 
     bool reyEnJaque(Color colorRey) const; 
     bool esJaqueMate(Color color);
+
+    bool movimientoIA();
 private:
     bool esCasillaFinalPromocionable(const Coordenada& c, Color color) const;
 };

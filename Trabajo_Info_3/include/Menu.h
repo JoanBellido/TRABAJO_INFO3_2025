@@ -6,6 +6,11 @@ enum class EstadoJuego {
     JUGANDO,
     CREDITOS
 };
+enum class ModoJuego {
+    Ninguno,
+    JugadorVsJugador,
+    JugadorVsIA
+};
 
 class TableroLogico; 
 
@@ -14,7 +19,8 @@ public:
     Menu();
 
     void dibujar() const;
-    void procesarClic(float glX, float glY, EstadoJuego& estadoJuego, TableroLogico* logico) const;
+    void procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJuego& modoJuego, TableroLogico* logico) const;
+
 
 private:
     struct Boton {

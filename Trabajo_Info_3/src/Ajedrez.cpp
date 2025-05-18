@@ -14,7 +14,7 @@ std::string mensajeEstado = "";  // NUEVO
 
 Menu menu;
 EstadoJuego estadoJuego = EstadoJuego::MENU;
-
+ModoJuego modojuego;
 TableroLogico tableroLogico;
 TableroVisual tableroVisual(&tableroLogico, 1.0f);
 
@@ -93,7 +93,7 @@ void OnMouse(int button, int state, int x, int y) {
     float glY = 5.0f - (float)y / h * 10.0f;
 
     if (estadoJuego == EstadoJuego::MENU) {
-        menu.procesarClic(glX, glY, estadoJuego, &tableroLogico);
+        menu.procesarClic(glX, glY, estadoJuego, modojuego, &tableroLogico);
         glutPostRedisplay();
         return;
     }
@@ -126,7 +126,7 @@ void OnMouse(int button, int state, int x, int y) {
 
             Color turnoTrasMovimiento = tableroLogico.getTurno();
             if (tableroLogico.reyEnJaque(turnoTrasMovimiento)) {
-                mensajeEstado = "\u00a1Est\u00e1s en jaque!";
+                mensajeEstado = "\u00a1Esta\u00e1s en jaque!";
                 if (tableroLogico.esJaqueMate(turnoTrasMovimiento)) {
                     mensajeEstado = "\u00a1Jaque mate! Gana el jugador ";
                     mensajeEstado += (turnoTrasMovimiento == BLANCO ? "NEGRO" : "BLANCO");
@@ -135,6 +135,9 @@ void OnMouse(int button, int state, int x, int y) {
             }
             else {
                 mensajeEstado = "";
+            }
+            if (modojuego == ModoJuego::JugadorVsIA && !tiempoFinalizado) {
+                tableroLogico.movimientoIA();
             }
         }
         else {
