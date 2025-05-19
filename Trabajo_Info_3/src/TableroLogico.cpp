@@ -1,6 +1,13 @@
 ﻿#include "TableroLogico.h"
 #include <iostream>
 #include <cctype> 
+#include "Peon.h"
+#include "Reina.h"
+#include "Torre.h"
+#include "Alfil.h"
+#include "Caballo.h"
+#include "Rey.h"
+
 
 TableroLogico::TableroLogico() : turno(BLANCO) {
     for (int i = 0; i < 10; ++i)

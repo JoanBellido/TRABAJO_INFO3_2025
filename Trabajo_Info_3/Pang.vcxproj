@@ -20,16 +20,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ajedrez.cpp" />
+    <ClCompile Include="src\Alfil.cpp" />
+    <ClCompile Include="src\Caballo.cpp" />
     <ClCompile Include="src\Menu.cpp" />
+    <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\pieza.cpp" />
+    <ClCompile Include="src\Reina.cpp" />
+    <ClCompile Include="src\Rey.cpp" />
     <ClCompile Include="src\TableroLogico.cpp" />
     <ClCompile Include="src\tableroVisual.cpp" />
+    <ClCompile Include="src\Torre.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Alfil.h" />
+    <ClInclude Include="include\Caballo.h" />
     <ClInclude Include="include\Menu.h" />
+    <ClInclude Include="include\Peon.h" />
     <ClInclude Include="include\pieza.h" />
+    <ClInclude Include="include\Reina.h" />
+    <ClInclude Include="include\Rey.h" />
     <ClInclude Include="include\TableroLogico.h" />
     <ClInclude Include="include\tableroVisual.h" />
+    <ClInclude Include="include\Torre.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
