@@ -1,13 +1,14 @@
 ﻿#include "TableroLogico.h"
 #include <iostream>
 #include <cctype> 
+#include <cstdlib>
+#include <ctime>
 #include "Peon.h"
 #include "Reina.h"
 #include "Torre.h"
 #include "Alfil.h"
 #include "Caballo.h"
 #include "Rey.h"
-
 
 TableroLogico::TableroLogico() : turno(BLANCO) {
     for (int i = 0; i < 10; ++i)
@@ -49,29 +50,23 @@ bool TableroLogico::mover(const Coordenada& origen, const Coordenada& destino) {
             Pieza* piezaOrigen = getPieza(origen);
             Pieza* piezaDestino = getPieza(destino);
 
-            
             cuadricula[destino.fila][destino.col] = piezaOrigen;
             cuadricula[origen.fila][origen.col] = nullptr;
 
-            
             if (reyEnJaque(turno)) {
-                
                 cuadricula[origen.fila][origen.col] = piezaOrigen;
                 cuadricula[destino.fila][destino.col] = piezaDestino;
                 std::cout << "No puedes dejar tu rey en jaque.\n";
                 return false;
             }
 
-            
             delete piezaDestino;
 
-            
             bool seraPromovido = dynamic_cast<Peon*>(piezaOrigen) && esCasillaFinalPromocionable(destino, piezaOrigen->getColor());
             if (auto peon = dynamic_cast<Peon*>(piezaOrigen); peon && !seraPromovido) {
                 peon->desactivarPrimerMovimiento();
             }
 
-            
             if (dynamic_cast<Peon*>(piezaOrigen) && seraPromovido) {
                 char opcion;
                 std::cout << "Promoción de peón. Elige pieza (Q: Reina, T: Torre, A: Alfil, C: Caballo): ";
@@ -97,7 +92,6 @@ bool TableroLogico::mover(const Coordenada& origen, const Coordenada& destino) {
 
     return false;
 }
-
 
 void TableroLogico::cambiarTurno() {
     turno = (turno == BLANCO) ? NEGRO : BLANCO;
@@ -161,7 +155,6 @@ void TableroLogico::inicializar() {
     asignar({ 9, 4 }, new Reina(NEGRO));
     asignar({ 9, 5 }, new Alfil(NEGRO));
     asignar({ 9, 6 }, new Rey(NEGRO));
-
 }
 
 void TableroLogico::imprimir() const {
@@ -183,11 +176,9 @@ void TableroLogico::imprimir() const {
     }
 }
 
-
 bool TableroLogico::reyEnJaque(Color colorRey) const {
     Coordenada posRey = { -1, -1 };
 
-    
     for (int i = 0; i < filas(); ++i) {
         for (int j = 0; j < columnas(i); ++j) {
             Coordenada c = { i, j };
@@ -203,7 +194,6 @@ bool TableroLogico::reyEnJaque(Color colorRey) const {
 
     if (posRey.fila == -1) return false;
 
-    
     for (int i = 0; i < filas(); ++i) {
         for (int j = 0; j < columnas(i); ++j) {
             Coordenada c = { i, j };
@@ -222,11 +212,11 @@ bool TableroLogico::reyEnJaque(Color colorRey) const {
 
     return false;
 }
+
 bool TableroLogico::esJaqueMate(Color color) {
     if (!reyEnJaque(color))
         return false;
 
-    
     for (int i = 0; i < filas(); ++i) {
         for (int j = 0; j < columnas(i); ++j) {
             Coordenada origen = { i, j };
@@ -234,14 +224,12 @@ bool TableroLogico::esJaqueMate(Color color) {
             if (p && p->getColor() == color) {
                 auto posibles = p->movimientos_validos(origen, *this);
                 for (const Coordenada& destino : posibles) {
-                    
                     Pieza* capturada = getPieza(destino);
                     cuadricula[destino.fila][destino.col] = p;
                     cuadricula[origen.fila][origen.col] = nullptr;
 
                     bool sigueEnJaque = reyEnJaque(color);
 
-                    
                     cuadricula[origen.fila][origen.col] = p;
                     cuadricula[destino.fila][destino.col] = capturada;
 
@@ -252,10 +240,8 @@ bool TableroLogico::esJaqueMate(Color color) {
         }
     }
 
-    return true; 
+    return true;
 }
-
-
 
 bool TableroLogico::movimientoIA() {
     srand(static_cast<unsigned int>(time(nullptr)));
@@ -267,17 +253,38 @@ bool TableroLogico::movimientoIA() {
             if (p && p->getColor() == turno) {
                 auto destinos = p->movimientos_validos(origen, *this);
                 if (!destinos.empty()) {
-                    // Elige un movimiento aleatorio entre los válidos
                     Coordenada destino = destinos[rand() % destinos.size()];
                     if (mover(origen, destino)) {
-                        return true; // Movimiento hecho
+                        return true;
                     }
                 }
             }
         }
     }
-    return false; // No encontró ningún movimiento válido
+    return false;
 }
+
+// detectar empate por rey vs rey
+bool TableroLogico::esTabla() const {
+    int cantidadPiezas = 0;
+    int cantidadReyes = 0;
+
+    for (int i = 0; i < filas(); ++i) {
+        for (int j = 0; j < columnas(i); ++j) {
+            Coordenada c = { i, j };
+            if (!coordenadaValida(c)) continue;
+
+            Pieza* p = getPieza(c);
+            if (p) {
+                cantidadPiezas++;
+                if (p->getID() == 'R') cantidadReyes++;
+            }
+        }
+    }
+
+    return cantidadPiezas == 2 && cantidadReyes == 2;
+}
+
 
 
 

@@ -24,13 +24,18 @@ public:
     void inicializar();
     void imprimir() const;
 
-    bool reyEnJaque(Color colorRey) const; 
+    bool reyEnJaque(Color colorRey) const;
     bool esJaqueMate(Color color);
 
     bool movimientoIA();
+
+    // ✅ NUEVO: detección de tablas
+    bool esTabla() const;
+
 private:
     bool esCasillaFinalPromocionable(const Coordenada& c, Color color) const;
 };
+
 
 
 
