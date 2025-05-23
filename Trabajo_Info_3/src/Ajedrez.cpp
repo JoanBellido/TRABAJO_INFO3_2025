@@ -4,15 +4,21 @@
 #include "Menu.h"
 #include <optional>
 #include <iostream>
+#include "freeglut.h"
+#include "TableroLogico.h"
+#include "TableroVisual.h"
+#include "Menu.h"
+#include <optional>
+#include <iostream>
 #include <string>
-#include <thread>     // ✅ NUEVO
-#include <chrono>     // ✅ NUEVO
+#include <thread>
+#include <chrono>
 
 int tiempoBlanco = 300;
 int tiempoNegro = 300;
 bool tiempoFinalizado = false;
 int lastTick = 0;
-std::string mensajeEstado = "";  // NUEVO
+std::string mensajeEstado = "";
 
 Menu menu;
 EstadoJuego estadoJuego = EstadoJuego::MENU;
@@ -31,15 +37,15 @@ bool casillaActiva(int fila, int col) {
 }
 
 void OnDraw() {
+    glClearColor(1, 1, 1, 1); // Fondo blanco
+    glClear(GL_COLOR_BUFFER_BIT);
+
     if (estadoJuego == EstadoJuego::MENU) {
         menu.dibujar();
         return;
     }
 
     if (estadoJuego == EstadoJuego::CREDITOS) {
-        glClearColor(0.9f, 0.9f, 0.95f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
         glColor3f(0.1f, 0.1f, 0.1f);
         glRasterPos2f(-2.0f, 2.5f);
         const char* titulo = "Equipo G08";
@@ -69,15 +75,22 @@ void OnDraw() {
         return;
     }
 
-    glClearColor(1, 1, 1, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     tableroVisual.dibuja();
 
+    // Mostrar mensaje de estado destacado
     if (!mensajeEstado.empty()) {
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glRasterPos2f(-5.0f, 4.6f);
+        glColor3f(1.0f, 0.7f, 0.7f); // Fondo del cartel
+        glBegin(GL_QUADS);
+        glVertex2f(-3.0f, 4.8f);
+        glVertex2f(3.0f, 4.8f);
+        glVertex2f(3.0f, 4.3f);
+        glVertex2f(-3.0f, 4.3f);
+        glEnd();
+
+        glColor3f(0.0f, 0.0f, 0.0f); // Texto negro
+        glRasterPos2f(-2.5f, 4.5f);
         for (char c : mensajeEstado)
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
     }
@@ -103,31 +116,24 @@ void OnMouse(int button, int state, int x, int y) {
 
     int fila = static_cast<int>(5.0f - glY);
     int col = static_cast<int>(glX + 5.5f);
-
     if (!casillaActiva(fila, col)) return;
 
     Coordenada clic = { fila, col };
-    std::cout << "Click en: [" << fila << "," << col << "]\n";
-
     Pieza* p = tableroLogico.getPieza(clic);
+
     if (!seleccion) {
         if (p && p->getColor() == tableroLogico.getTurno()) {
             seleccion = clic;
-            std::cout << "Seleccionada pieza " << p->getID() << " en [" << fila << "," << col << "]\n";
-        }
-        else {
-            std::cout << "Seleccion invalida\n";
+            tableroVisual.setSeleccionada(seleccion);
         }
     }
     else {
         if (tableroLogico.mover(*seleccion, clic)) {
-            system("cls");
             tableroLogico.imprimir();
-            std::cout << "Movimiento realizado a [" << clic.fila << "," << clic.col << "]\n";
 
             Color turnoTrasMovimiento = tableroLogico.getTurno();
             if (tableroLogico.reyEnJaque(turnoTrasMovimiento)) {
-                mensajeEstado = "\u00a1Esta\u00e1s en jaque!";
+                mensajeEstado = "\u00a1Estás en jaque!";
                 if (tableroLogico.esJaqueMate(turnoTrasMovimiento)) {
                     mensajeEstado = "\u00a1Jaque mate! Gana el jugador ";
                     mensajeEstado += (turnoTrasMovimiento == BLANCO ? "NEGRO" : "BLANCO");
@@ -138,16 +144,18 @@ void OnMouse(int button, int state, int x, int y) {
                 mensajeEstado = "";
             }
 
-            // ✅ Aquí simulamos que la IA "piensa" antes de mover
             if (modojuego == ModoJuego::JugadorVsIA && !tiempoFinalizado) {
-                std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-                tableroLogico.movimientoIA();
+                std::thread iaThread([] {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+                    tableroLogico.movimientoIA();
+                    glutPostRedisplay();
+                    });
+                iaThread.detach();
             }
         }
-        else {
-            std::cout << "Movimiento invalido\n";
-        }
+
         seleccion.reset();
+        tableroVisual.setSeleccionada(std::nullopt);
     }
 
     glutPostRedisplay();
@@ -156,12 +164,11 @@ void OnMouse(int button, int state, int x, int y) {
 void OnKeyboardDown(unsigned char key, int, int) {
     if (key == 'r') {
         seleccion.reset();
+        tableroVisual.setSeleccionada(std::nullopt);
         tiempoBlanco = 300;
         tiempoNegro = 300;
         tiempoFinalizado = false;
         mensajeEstado = "";
-        std::cout << "Tablero y reloj reiniciados\n";
-        system("cls");
         tableroLogico.inicializar();
         tableroLogico.imprimir();
     }
@@ -169,14 +176,14 @@ void OnKeyboardDown(unsigned char key, int, int) {
     if (key == 27) {
         tableroLogico.inicializar();
         seleccion.reset();
+        tableroVisual.setSeleccionada(std::nullopt);
         tiempoBlanco = 300;
         tiempoNegro = 300;
         tiempoFinalizado = false;
         mensajeEstado = "";
         estadoJuego = EstadoJuego::MENU;
-        menu.dibujar();
-        system("cls");
     }
+
     glutPostRedisplay();
 }
 
@@ -225,6 +232,8 @@ int main(int argc, char* argv[]) {
     glutMainLoop();
     return 0;
 }
+
+
 
 
 

@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Ajedrez.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\tableroVisual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:include\\tableroVisual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\TableroLogico.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:include\\TableroLogico.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Torre.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Torre.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\tableroVisual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Rey.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -53,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\Torre.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:include\\Torre.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:include\\tableroVisual.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\Rey.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -94,24 +94,11 @@
       "DocumentGroups": [
         {
           "DockedHeight": 315,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Peon.cpp",
-              "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Peon.cpp",
-              "RelativeDocumentMoniker": "src\\Peon.cpp",
-              "ToolTip": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Peon.cpp",
-              "RelativeToolTip": "src\\Peon.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T16:49:45.502Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "pieza.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\pieza.cpp",
               "RelativeDocumentMoniker": "src\\pieza.cpp",
@@ -119,12 +106,11 @@
               "RelativeToolTip": "src\\pieza.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-15T12:44:53.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T12:44:53.04Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Reina.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Reina.cpp",
               "RelativeDocumentMoniker": "src\\Reina.cpp",
@@ -132,12 +118,11 @@
               "RelativeToolTip": "src\\Reina.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T17:13:10.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:13:10.299Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "TableroLogico.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.cpp",
               "RelativeDocumentMoniker": "src\\TableroLogico.cpp",
@@ -145,12 +130,11 @@
               "RelativeToolTip": "src\\TableroLogico.cpp",
               "ViewState": "AgIAADcBAAAAAAAAAAAIwEEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-15T12:44:58.932Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T12:44:58.932Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Rey.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Rey.cpp",
               "RelativeDocumentMoniker": "src\\Rey.cpp",
@@ -158,25 +142,23 @@
               "RelativeToolTip": "src\\Rey.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T17:13:18.403Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:13:18.403Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "tableroVisual.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp",
               "RelativeDocumentMoniker": "src\\tableroVisual.cpp",
               "ToolTip": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp",
               "RelativeToolTip": "src\\tableroVisual.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAowIQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-15T12:38:15.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T12:38:15.271Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Torre.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Torre.cpp",
               "RelativeDocumentMoniker": "src\\Torre.cpp",
@@ -184,12 +166,11 @@
               "RelativeToolTip": "src\\Torre.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T17:13:25.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:13:25.247Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TableroLogico.h",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\TableroLogico.h",
               "RelativeDocumentMoniker": "include\\TableroLogico.h",
@@ -197,8 +178,7 @@
               "RelativeToolTip": "include\\TableroLogico.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-15T12:44:36.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T12:44:36.219Z"
             },
             {
               "$type": "Document",
@@ -208,14 +188,14 @@
               "RelativeDocumentMoniker": "src\\Ajedrez.cpp",
               "ToolTip": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp",
               "RelativeToolTip": "src\\Ajedrez.cpp",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAI4AAABJAAAAAAAAAA==",
+              "ViewState": "AgIAAMsAAAAAAAAAAAAowOoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-15T12:44:40.971Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Menu.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Menu.cpp",
               "RelativeDocumentMoniker": "src\\Menu.cpp",
@@ -223,12 +203,35 @@
               "RelativeToolTip": "src\\Menu.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-15T12:44:46.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T12:44:46.366Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
+              "Title": "tableroVisual.h",
+              "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h",
+              "RelativeDocumentMoniker": "include\\tableroVisual.h",
+              "ToolTip": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h",
+              "RelativeToolTip": "include\\tableroVisual.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-15T12:44:38.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Peon.cpp",
+              "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Peon.cpp",
+              "RelativeDocumentMoniker": "src\\Peon.cpp",
+              "ToolTip": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Peon.cpp",
+              "RelativeToolTip": "src\\Peon.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-19T16:49:45.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Caballo.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Caballo.cpp",
               "RelativeDocumentMoniker": "src\\Caballo.cpp",
@@ -236,12 +239,11 @@
               "RelativeToolTip": "src\\Caballo.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T17:12:55.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:12:55.543Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Alfil.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Alfil.cpp",
               "RelativeDocumentMoniker": "src\\Alfil.cpp",
@@ -249,12 +251,11 @@
               "RelativeToolTip": "src\\Alfil.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-19T17:12:39.871Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:12:39.871Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Torre.h",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\Torre.h",
               "RelativeDocumentMoniker": "include\\Torre.h",
@@ -262,21 +263,7 @@
               "RelativeToolTip": "include\\Torre.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T17:11:30.489Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "tableroVisual.h",
-              "DocumentMoniker": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h",
-              "RelativeDocumentMoniker": "include\\tableroVisual.h",
-              "ToolTip": "C:\\Users\\manue\\OneDrive\\Documentos\\GitHub\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h",
-              "RelativeToolTip": "include\\tableroVisual.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-15T12:44:38.928Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:11:30.489Z"
             },
             {
               "$type": "Document",
@@ -288,8 +275,7 @@
               "RelativeToolTip": "include\\Rey.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T17:12:01.031Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:12:01.031Z"
             },
             {
               "$type": "Document",
@@ -301,8 +287,7 @@
               "RelativeToolTip": "include\\Reina.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T17:12:11.194Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:12:11.194Z"
             },
             {
               "$type": "Document",
@@ -314,8 +299,7 @@
               "RelativeToolTip": "include\\pieza.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-15T12:44:32.201Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T12:44:32.201Z"
             },
             {
               "$type": "Document",
@@ -327,8 +311,7 @@
               "RelativeToolTip": "include\\Peon.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T16:49:06.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T16:49:06.046Z"
             },
             {
               "$type": "Document",
@@ -340,8 +323,7 @@
               "RelativeToolTip": "include\\Menu.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-11T12:01:14.641Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T12:01:14.641Z"
             },
             {
               "$type": "Document",
@@ -353,8 +335,7 @@
               "RelativeToolTip": "include\\Caballo.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T17:12:20.481Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:12:20.481Z"
             },
             {
               "$type": "Document",
@@ -366,8 +347,7 @@
               "RelativeToolTip": "include\\Alfil.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-19T17:11:52.517Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T17:11:52.517Z"
             }
           ]
         }
