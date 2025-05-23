@@ -4,12 +4,6 @@
 #include "Menu.h"
 #include <optional>
 #include <iostream>
-#include "freeglut.h"
-#include "TableroLogico.h"
-#include "TableroVisual.h"
-#include "Menu.h"
-#include <optional>
-#include <iostream>
 #include <string>
 #include <thread>
 #include <chrono>
@@ -28,6 +22,10 @@ TableroVisual tableroVisual(&tableroLogico, 1.0f);
 
 std::optional<Coordenada> seleccion;
 
+// ✅ NUEVO: control para parpadeo de mensaje
+bool mostrarMensaje = true;
+int blinkTimer = 0;
+
 bool casillaActiva(int fila, int col) {
     static int activos[] = { 3,5,7,9,11,11,9,7,5,3 };
     if (fila < 0 || fila >= 10 || col < 0 || col >= 11) return false;
@@ -37,7 +35,7 @@ bool casillaActiva(int fila, int col) {
 }
 
 void OnDraw() {
-    glClearColor(1, 1, 1, 1); // Fondo blanco
+    glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 
     if (estadoJuego == EstadoJuego::MENU) {
@@ -51,7 +49,6 @@ void OnDraw() {
         const char* titulo = "Equipo G08";
         for (const char* c = titulo; *c; ++c)
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
-
         const char* nombres[] = {
             "Sergio Ballesteros Palomo",
             "Joan Bellido Ines",
@@ -65,12 +62,10 @@ void OnDraw() {
             for (const char* c = nombres[i]; *c; ++c)
                 glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
         }
-
         glRasterPos2f(-2.0f, -1.2f);
         const char* volver = "Presiona ESC para volver al menu";
         for (const char* c = volver; *c; ++c)
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
-
         glutSwapBuffers();
         return;
     }
@@ -79,9 +74,9 @@ void OnDraw() {
     glLoadIdentity();
     tableroVisual.dibuja();
 
-    // Mostrar mensaje de estado destacado
-    if (!mensajeEstado.empty()) {
-        glColor3f(1.0f, 0.7f, 0.7f); // Fondo del cartel
+    // ✅ Mensaje de JAQUE o JAQUE MATE con parpadeo
+    if (!mensajeEstado.empty() && mostrarMensaje) {
+        glColor3f(1.0f, 0.7f, 0.7f);
         glBegin(GL_QUADS);
         glVertex2f(-3.0f, 4.8f);
         glVertex2f(3.0f, 4.8f);
@@ -89,7 +84,7 @@ void OnDraw() {
         glVertex2f(-3.0f, 4.3f);
         glEnd();
 
-        glColor3f(0.0f, 0.0f, 0.0f); // Texto negro
+        glColor3f(0.0f, 0.0f, 0.0f);
         glRasterPos2f(-2.5f, 4.5f);
         for (char c : mensajeEstado)
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
@@ -189,7 +184,7 @@ void OnKeyboardDown(unsigned char key, int, int) {
 
 void OnTimer(int value) {
     int now = glutGet(GLUT_ELAPSED_TIME);
-    if (!tiempoFinalizado && now - lastTick >= 1000 && estadoJuego == EstadoJuego::JUGANDO) {
+    if (!tiempoFinalizado && estadoJuego == EstadoJuego::JUGANDO && now - lastTick >= 1000) {
         lastTick = now;
 
         if (tableroLogico.getTurno() == BLANCO) {
@@ -206,6 +201,13 @@ void OnTimer(int value) {
                 mensajeEstado = "\u00a1Tiempo agotado! Gana el jugador BLANCO";
             }
         }
+    }
+
+    // ✅ Control de parpadeo del mensaje cada 500 ms
+    blinkTimer += 25;
+    if (blinkTimer >= 500) {
+        mostrarMensaje = !mostrarMensaje;
+        blinkTimer = 0;
     }
 
     glutTimerFunc(25, OnTimer, 0);
@@ -232,6 +234,7 @@ int main(int argc, char* argv[]) {
     glutMainLoop();
     return 0;
 }
+
 
 
 
