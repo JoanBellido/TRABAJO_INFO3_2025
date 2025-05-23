@@ -5,6 +5,8 @@
 #include <optional>
 #include <iostream>
 #include <string>
+#include <thread>     // ✅ NUEVO
+#include <chrono>     // ✅ NUEVO
 
 int tiempoBlanco = 300;
 int tiempoNegro = 300;
@@ -73,7 +75,6 @@ void OnDraw() {
     glLoadIdentity();
     tableroVisual.dibuja();
 
-    // Mostrar mensaje de estado si existe
     if (!mensajeEstado.empty()) {
         glColor3f(1.0f, 0.0f, 0.0f);
         glRasterPos2f(-5.0f, 4.6f);
@@ -136,7 +137,10 @@ void OnMouse(int button, int state, int x, int y) {
             else {
                 mensajeEstado = "";
             }
+
+            // ✅ Aquí simulamos que la IA "piensa" antes de mover
             if (modojuego == ModoJuego::JugadorVsIA && !tiempoFinalizado) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(2000));
                 tableroLogico.movimientoIA();
             }
         }
@@ -221,6 +225,7 @@ int main(int argc, char* argv[]) {
     glutMainLoop();
     return 0;
 }
+
 
 
 

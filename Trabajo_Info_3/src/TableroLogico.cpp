@@ -243,8 +243,15 @@ bool TableroLogico::esJaqueMate(Color color) {
     return true;
 }
 
+// ✅ IA mejorada: elige el mejor movimiento posible basado en valor de captura
 bool TableroLogico::movimientoIA() {
-    srand(static_cast<unsigned int>(time(nullptr)));
+    struct Movimiento {
+        Coordenada origen;
+        Coordenada destino;
+        int valorCaptura;
+    };
+
+    std::vector<Movimiento> posibles;
 
     for (int i = 0; i < filas(); ++i) {
         for (int j = 0; j < columnas(i); ++j) {
@@ -252,19 +259,47 @@ bool TableroLogico::movimientoIA() {
             Pieza* p = getPieza(origen);
             if (p && p->getColor() == turno) {
                 auto destinos = p->movimientos_validos(origen, *this);
-                if (!destinos.empty()) {
-                    Coordenada destino = destinos[rand() % destinos.size()];
-                    if (mover(origen, destino)) {
-                        return true;
+                for (const auto& destino : destinos) {
+                    int valor = 0;
+                    Pieza* capturada = getPieza(destino);
+                    if (capturada) {
+                        switch (capturada->getID()) {
+                        case 'P': valor = 1; break;
+                        case 'C': case 'A': valor = 3; break;
+                        case 'T': valor = 5; break;
+                        case 'Q': valor = 9; break;
+                        case 'R': valor = 100; break;
+                        default: valor = 0; break;
+                        }
                     }
+                    posibles.push_back({ origen, destino, valor });
                 }
             }
         }
     }
-    return false;
+
+    if (posibles.empty()) return false;
+
+    int mejorValor = -1;
+    std::vector<Movimiento> mejores;
+
+    for (const auto& m : posibles) {
+        if (m.valorCaptura > mejorValor) {
+            mejorValor = m.valorCaptura;
+            mejores.clear();
+            mejores.push_back(m);
+        }
+        else if (m.valorCaptura == mejorValor) {
+            mejores.push_back(m);
+        }
+    }
+
+    srand(static_cast<unsigned int>(time(nullptr)));
+    Movimiento elegido = mejores[rand() % mejores.size()];
+
+    return mover(elegido.origen, elegido.destino);
 }
 
-// detectar empate por rey vs rey
 bool TableroLogico::esTabla() const {
     int cantidadPiezas = 0;
     int cantidadReyes = 0;
@@ -284,6 +319,7 @@ bool TableroLogico::esTabla() const {
 
     return cantidadPiezas == 2 && cantidadReyes == 2;
 }
+
 
 
 
