@@ -1,6 +1,7 @@
-﻿#include "freeglut.h"
+#include "freeglut.h"
 #include "TableroLogico.h"
 #include "TableroVisual.h"
+#include "TexturaPiezas.h"
 #include "Menu.h"
 #include <optional>
 #include <iostream>
@@ -19,6 +20,8 @@ EstadoJuego estadoJuego = EstadoJuego::MENU;
 ModoJuego modojuego;
 TableroLogico tableroLogico;
 TableroVisual tableroVisual(&tableroLogico, 1.0f);
+TexturaPiezas texturaPiezas;
+GLuint texturas[TexturaPiezas::TOTAL_TEXTURAS];
 
 std::optional<Coordenada> seleccion;
 
@@ -235,18 +238,20 @@ int main(int argc, char* argv[]) {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(-5.5f, 5.5f, -5.0f, 5.0f);
-
+    // texturas:
+    texturaPiezas.cargarTodasLasTexturas(texturas);
     lastTick = glutGet(GLUT_ELAPSED_TIME);
 
     glutDisplayFunc(OnDraw);
     glutMouseFunc(OnMouse);
     glutKeyboardFunc(OnKeyboardDown);
     glutTimerFunc(25, OnTimer, 0);
+   
+
 
     glutMainLoop();
     return 0;
 }
-
 
 
 
