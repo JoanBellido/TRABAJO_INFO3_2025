@@ -1,5 +1,5 @@
 #pragma once
-#include "Pieza.h"
+#include "pieza.h"
 
 class Alfil : public Pieza {
 public:
