@@ -27,7 +27,7 @@ public:
     bool reyEnJaque(Color colorRey) const;
     bool esJaqueMate(Color color);
 
-    bool movimientoIA(); // ✅ Mejora aplicada aquí
+    bool movimientoIA(); 
 
     bool esTabla() const;
 

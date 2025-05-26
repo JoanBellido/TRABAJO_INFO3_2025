@@ -31,7 +31,7 @@ private:
 
     Boton boton1vs1;
     Boton botonVsIA;
-    Boton botoncred; //falta por aclarar si es necesaria esta definición
+    Boton botoncred;
 
     void dibujarBoton(const Boton& boton) const;
 };

@@ -7,7 +7,7 @@ class TableroVisual {
 private:
     TableroLogico* logico;
     float size;
-    std::optional<Coordenada> seleccionada; // ? NUEVO
+    std::optional<Coordenada> seleccionada; 
 
 public:
     TableroVisual(TableroLogico* logico, float tam = 1.0f);

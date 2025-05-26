@@ -243,7 +243,7 @@ bool TableroLogico::esJaqueMate(Color color) {
     return true;
 }
 
-// ✅ IA mejorada: elige el mejor movimiento posible basado en valor de captura
+
 bool TableroLogico::movimientoIA() {
     struct Movimiento {
         Coordenada origen;
@@ -260,10 +260,22 @@ bool TableroLogico::movimientoIA() {
             if (p && p->getColor() == turno) {
                 auto destinos = p->movimientos_validos(origen, *this);
                 for (const auto& destino : destinos) {
+                    Pieza* piezaOrigen = cuadricula[origen.fila][origen.col];
+                    Pieza* piezaDestino = cuadricula[destino.fila][destino.col];
+
+                    cuadricula[destino.fila][destino.col] = piezaOrigen;
+                    cuadricula[origen.fila][origen.col] = nullptr;
+
+                    bool enJaque = reyEnJaque(turno);
+
+                    cuadricula[origen.fila][origen.col] = piezaOrigen;
+                    cuadricula[destino.fila][destino.col] = piezaDestino;
+
+                    if (enJaque) continue;
+
                     int valor = 0;
-                    Pieza* capturada = getPieza(destino);
-                    if (capturada) {
-                        switch (capturada->getID()) {
+                    if (piezaDestino) {
+                        switch (piezaDestino->getID()) {
                         case 'P': valor = 1; break;
                         case 'C': case 'A': valor = 3; break;
                         case 'T': valor = 5; break;
@@ -272,6 +284,7 @@ bool TableroLogico::movimientoIA() {
                         default: valor = 0; break;
                         }
                     }
+
                     posibles.push_back({ origen, destino, valor });
                 }
             }

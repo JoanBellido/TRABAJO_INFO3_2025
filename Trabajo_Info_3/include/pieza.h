@@ -8,7 +8,6 @@ struct Coordenada {
     int col;
 };
 
-// Declaración adelantada para evitar dependencias circulares
 class TableroLogico;
 
 class Pieza {

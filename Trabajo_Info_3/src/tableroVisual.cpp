@@ -80,13 +80,12 @@ void TableroVisual::dibuja() {
         }
     }
 
-    // ✅ Dibuja la casilla seleccionada (resaltado amarillo)
     if (seleccionada) {
         Coordenada c = *seleccionada;
         float x = origenX + c.col * size;
         float y = origenY - c.fila * size;
 
-        glColor3f(1.0f, 1.0f, 0.0f); // Amarillo
+        glColor3f(1.0f, 1.0f, 0.0f);
         glLineWidth(3.0f);
         glBegin(GL_LINE_LOOP);
         glVertex2f(x, y);

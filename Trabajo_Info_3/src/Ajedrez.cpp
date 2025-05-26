@@ -22,7 +22,6 @@ TableroVisual tableroVisual(&tableroLogico, 1.0f);
 
 std::optional<Coordenada> seleccion;
 
-// ✅ NUEVO: control para parpadeo de mensaje
 bool mostrarMensaje = true;
 int blinkTimer = 0;
 
@@ -74,7 +73,6 @@ void OnDraw() {
     glLoadIdentity();
     tableroVisual.dibuja();
 
-    // ✅ Mensaje de JAQUE o JAQUE MATE con parpadeo
     if (!mensajeEstado.empty() && mostrarMensaje) {
         glColor3f(1.0f, 0.7f, 0.7f);
         glBegin(GL_QUADS);
@@ -139,14 +137,29 @@ void OnMouse(int button, int state, int x, int y) {
                 mensajeEstado = "";
             }
 
-            if (modojuego == ModoJuego::JugadorVsIA && !tiempoFinalizado) {
+            if (modojuego == ModoJuego::JugadorVsIA && tableroLogico.getTurno() == NEGRO && !tiempoFinalizado) {
                 std::thread iaThread([] {
                     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
                     tableroLogico.movimientoIA();
+
+                    Color turnoTrasIA = tableroLogico.getTurno(); 
+                    if (tableroLogico.reyEnJaque(turnoTrasIA)) {
+                        mensajeEstado = "\u00a1Estás en jaque!";
+                        if (tableroLogico.esJaqueMate(turnoTrasIA)) {
+                            mensajeEstado = "\u00a1Jaque mate! Gana el jugador ";
+                            mensajeEstado += (turnoTrasIA == BLANCO ? "NEGRO" : "BLANCO");
+                            tiempoFinalizado = true;
+                        }
+                    }
+                    else {
+                        mensajeEstado = "";
+                    }
+
                     glutPostRedisplay();
                     });
                 iaThread.detach();
             }
+
         }
 
         seleccion.reset();
@@ -203,7 +216,6 @@ void OnTimer(int value) {
         }
     }
 
-    // ✅ Control de parpadeo del mensaje cada 500 ms
     blinkTimer += 25;
     if (blinkTimer >= 500) {
         mostrarMensaje = !mostrarMensaje;
