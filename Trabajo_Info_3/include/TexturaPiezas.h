@@ -17,6 +17,7 @@ public:
         N_ALFIL,
         N_REINA,
         N_REY,
+        FONDO_MENU,
         TOTAL_TEXTURAS
     };
 
