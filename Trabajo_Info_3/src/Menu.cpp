@@ -3,9 +3,10 @@
 #include "freeglut.h"
 
 Menu::Menu()
-    : boton1vs1{ 0.0f, 1.0f, 4.0f, 1.4f, "Jugador vs Jugador" },
-    botonVsIA{ 0.0f, -1.0f, 4.0f, 1.4f, "Jugador vs Ordenador" }, 
-    botoncred{ 0.0f, -3.0f, 4.0f, 1.4f, "Creditos" } {
+    : boton1vs1{ 0.0f, 2.0f, 4.0f, 1.2f, "Jugador vs Jugador" },
+    botonVsIA{ 0.0f, 0.6f, 4.0f, 1.2f, "Jugador vs Ordenador" }, 
+    botoncred{ 0.0f, -2.2f, 4.0f, 1.2f, "Creditos" },
+    botonconfig{ 0.0f, -0.8f, 4.0f, 1.2f, "Configuracion" } {
 }
 
 void Menu::dibujar() const {
@@ -13,7 +14,7 @@ void Menu::dibujar() const {
     glClear(GL_COLOR_BUFFER_BIT);
 
     glColor3f(0.1f, 0.1f, 0.3f);
-    glRasterPos2f(-2.0f, 2.5f);
+    glRasterPos2f(-2.0f, 3.0f);
     const char* titulo = "Ajedrez Balbo";
     for (const char* c = titulo; *c; ++c)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
@@ -21,6 +22,7 @@ void Menu::dibujar() const {
     dibujarBoton(boton1vs1);
     dibujarBoton(botonVsIA);
     dibujarBoton(botoncred);
+    dibujarBoton(botonconfig);
 
     glutSwapBuffers();
 }
@@ -60,6 +62,9 @@ void Menu::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJueg
     }
     else if (clicEnBoton(glX, glY, botoncred)) {
         estadoJuego = EstadoJuego::CREDITOS;
+    }
+    else if (clicEnBoton(glX, glY, botonconfig)) {
+        estadoJuego = EstadoJuego::CONFIG;
     }
 }
 

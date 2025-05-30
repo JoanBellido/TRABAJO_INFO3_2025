@@ -8,6 +8,9 @@
 #include <string>
 #include <thread>
 #include <chrono>
+#include "ETSIDI.h"
+#include "menuconfig.h"
+
 
 int tiempoBlanco = 300;
 int tiempoNegro = 300;
@@ -16,6 +19,7 @@ int lastTick = 0;
 std::string mensajeEstado = "";
 
 Menu menu;
+MenuConfig menuConfig;
 EstadoJuego estadoJuego = EstadoJuego::MENU;
 ModoJuego modojuego;
 TableroLogico tableroLogico;
@@ -44,8 +48,16 @@ void OnDraw() {
         menu.dibujar();
         return;
     }
+    if (estadoJuego == EstadoJuego::CONFIG) {
+        menuConfig.dibujar();
+        return;
+    }
+
 
     if (estadoJuego == EstadoJuego::CREDITOS) {
+        glClearColor(0.9f, 0.9f, 0.95f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
         glColor3f(0.1f, 0.1f, 0.1f);
         glRasterPos2f(-2.0f, 2.5f);
         const char* titulo = "Equipo G08";
@@ -104,6 +116,11 @@ void OnMouse(int button, int state, int x, int y) {
 
     if (estadoJuego == EstadoJuego::MENU) {
         menu.procesarClic(glX, glY, estadoJuego, modojuego, &tableroLogico);
+        glutPostRedisplay();
+        return;
+    }
+    if (estadoJuego == EstadoJuego::CONFIG) {
+        menuConfig.procesarClic(glX, glY, estadoJuego, modojuego, &tableroLogico);
         glutPostRedisplay();
         return;
     }
@@ -242,13 +259,15 @@ int main(int argc, char* argv[]) {
     texturaPiezas.cargarTodasLasTexturas(texturas);
     lastTick = glutGet(GLUT_ELAPSED_TIME);
 
+    //implementación futura de la música
+   // ETSIDI::playMusica("bin/music/soundtrack1.mp3", true);
+
     glutDisplayFunc(OnDraw);
     glutMouseFunc(OnMouse);
     glutKeyboardFunc(OnKeyboardDown);
     glutTimerFunc(25, OnTimer, 0);
    
-
-
+    
     glutMainLoop();
     return 0;
 }

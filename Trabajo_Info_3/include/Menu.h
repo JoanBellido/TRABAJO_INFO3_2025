@@ -4,7 +4,8 @@
 enum class EstadoJuego {
     MENU,
     JUGANDO,
-    CREDITOS
+    CREDITOS,
+    CONFIG
 };
 enum class ModoJuego {
     Ninguno,
@@ -18,8 +19,8 @@ class Menu {
 public:
     Menu();
 
-    void dibujar() const;
-    void procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJuego& modoJuego, TableroLogico* logico) const;
+    virtual void dibujar() const;
+    virtual void procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJuego& modoJuego, TableroLogico* logico) const;
 
 
 private:
@@ -32,6 +33,7 @@ private:
     Boton boton1vs1;
     Boton botonVsIA;
     Boton botoncred;
+    Boton botonconfig;
 
     void dibujarBoton(const Boton& boton) const;
 };
