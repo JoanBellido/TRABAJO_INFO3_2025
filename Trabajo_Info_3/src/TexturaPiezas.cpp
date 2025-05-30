@@ -9,6 +9,8 @@
 #include <iostream>
 #include "pieza.h"
 
+
+
 GLuint TexturaPiezas::cargarTexturaPNG(const char* filename) {
     int ancho, alto, canales;
     unsigned char* data = stbi_load(filename, &ancho, &alto, &canales, STBI_rgb_alpha);
@@ -47,6 +49,7 @@ void TexturaPiezas::cargarTodasLasTexturas(GLuint texturas[]) {
     texturas[TexturaPiezas::N_REINA] = cargarTexturaPNG("bin/piezas/n_reina.png");
     texturas[TexturaPiezas::N_REY] = cargarTexturaPNG("bin/piezas/n_rey.png");
 }
+
 void TexturaPiezas::dibujarPieza(GLuint texID, float x, float y, float size) {
    
         glEnable(GL_TEXTURE_2D);

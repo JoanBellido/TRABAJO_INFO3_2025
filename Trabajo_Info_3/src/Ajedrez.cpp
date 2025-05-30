@@ -255,19 +255,19 @@ int main(int argc, char* argv[]) {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(-5.5f, 5.5f, -5.0f, 5.0f);
-    // texturas:
-    texturaPiezas.cargarTodasLasTexturas(texturas);
-    lastTick = glutGet(GLUT_ELAPSED_TIME);
-
-    //implementación futura de la música
-   // ETSIDI::playMusica("bin/music/soundtrack1.mp3", true);
 
     glutDisplayFunc(OnDraw);
     glutMouseFunc(OnMouse);
     glutKeyboardFunc(OnKeyboardDown);
     glutTimerFunc(25, OnTimer, 0);
-   
-    
+    // texturas:
+    texturaPiezas.cargarTodasLasTexturas(texturas);
+
+    lastTick = glutGet(GLUT_ELAPSED_TIME);
+
+    //implementación futura de la música
+   // ETSIDI::playMusica("bin/music/soundtrack1.mp3", true);
+
     glutMainLoop();
     return 0;
 }
