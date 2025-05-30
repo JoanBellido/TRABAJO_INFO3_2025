@@ -1,7 +1,7 @@
 # TRABAJO_INFO3_2025
  Trabajo de la asignatura de Informática Industrial.
  
- GRUPO 8 - Ajedrez Balbo
+ GRUPO 8 - Ajedrez Balbo.
  
  Participantes:
  
