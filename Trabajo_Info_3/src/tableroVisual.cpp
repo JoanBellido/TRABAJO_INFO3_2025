@@ -70,20 +70,14 @@ void TableroVisual::dibuja() {
             if (logico->coordenadaValida({ i, j })) {
                 Pieza* p = logico->getPieza({ i, j });
                 if (p) {
-                   // glColor3f(0, 0, 0);
-                   //glRasterPos2f(x + 0.3f, y - 0.7f);
+                
                     GLuint texID = texturas[p->getTipoTextura()];
                     if (texID != 0) {
                         // Dibuja la textura de la pieza en la casilla
                         texturaPiezas.dibujarPieza(texID, x, y - size, size);
                     }
-                    //char text[3] = {
-                        //(p->getColor() == Color::BLANCO ? 'B' : 'N'),
-                       // p->getID(), '\0'
-                   // };
-                    //for (int k = 0; text[k]; ++k)
-                       // glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, text[k]);
-                }
+                   
+                    
             }
         }
     }
