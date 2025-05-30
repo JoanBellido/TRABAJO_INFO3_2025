@@ -31,23 +31,22 @@ GLuint TexturaPiezas::cargarTexturaPNG(const char* filename) {
 
 void TexturaPiezas::cargarTodasLasTexturas(GLuint texturas[]) {
     // imagen inicio (menu)
-    texturas[TexturaPiezas::FONDO_MENU] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/fondo_menu.jpg"); 
+    texturas[TexturaPiezas::FONDO_MENU] = cargarTexturaPNG("bin/piezas/fondo_menu.jpg");
 
-    texturas[TexturaPiezas::B_PEON] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/b_peon.png");
-    texturas[TexturaPiezas::B_TORRE] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/b_torre.png");
-    texturas[TexturaPiezas::B_CABALLO] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/b_caballo.png");
-    texturas[TexturaPiezas::B_ALFIL] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/b_alfil.png");
-    texturas[TexturaPiezas::B_REINA] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/b_reina.png");
-    texturas[TexturaPiezas::B_REY] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/b_rey.png");
+    texturas[TexturaPiezas::B_PEON] = cargarTexturaPNG("bin/piezas/b_peon.png");
+    texturas[TexturaPiezas::B_TORRE] = cargarTexturaPNG("bin/piezas/b_torre.png");
+    texturas[TexturaPiezas::B_CABALLO] = cargarTexturaPNG("bin/piezas/b_caballo.png");
+    texturas[TexturaPiezas::B_ALFIL] = cargarTexturaPNG("bin/piezas/b_alfil.png");
+    texturas[TexturaPiezas::B_REINA] = cargarTexturaPNG("bin/piezas/b_reina.png");
+    texturas[TexturaPiezas::B_REY] = cargarTexturaPNG("bin/piezas/b_rey.png");
 
-    texturas[TexturaPiezas::N_PEON] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/n_peon.png");
-    texturas[TexturaPiezas::N_TORRE] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/n_torre.png");
-    texturas[TexturaPiezas::N_CABALLO] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/n_caballo.png");
-    texturas[TexturaPiezas::N_ALFIL] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/n_alfil.png");
-    texturas[TexturaPiezas::N_REINA] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/n_reina.png");
-    texturas[TexturaPiezas::N_REY] = cargarTexturaPNG("C:/Users/prestamo_admin/Documents/GitHub/TRABAJO_INFO3_2025/Trabajo_Info_3/bin/piezas/n_rey.png");
+    texturas[TexturaPiezas::N_PEON] = cargarTexturaPNG("bin/piezas/n_peon.png");
+    texturas[TexturaPiezas::N_TORRE] = cargarTexturaPNG("bin/piezas/n_torre.png");
+    texturas[TexturaPiezas::N_CABALLO] = cargarTexturaPNG("bin/piezas/n_caballo.png");
+    texturas[TexturaPiezas::N_ALFIL] = cargarTexturaPNG("bin/piezas/n_alfil.png");
+    texturas[TexturaPiezas::N_REINA] = cargarTexturaPNG("bin/piezas/n_reina.png");
+    texturas[TexturaPiezas::N_REY] = cargarTexturaPNG("bin/piezas/n_rey.png");
 }
-
 void TexturaPiezas::dibujarPieza(GLuint texID, float x, float y, float size) {
    
         glEnable(GL_TEXTURE_2D);

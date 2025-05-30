@@ -1,6 +1,8 @@
 #include "Menu.h"
 #include "TableroLogico.h"
 #include "freeglut.h"
+#include "TexturaPiezas.h"
+extern GLuint texturas[];
 
 Menu::Menu()
     : boton1vs1{ 0.0f, 2.0f, 4.0f, 1.2f, "Jugador vs Jugador" },
