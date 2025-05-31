@@ -24,6 +24,7 @@
     <ClCompile Include="src\Caballo.cpp" />
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\menuconfig.cpp" />
+    <ClCompile Include="src\MenuTematica.cpp" />
     <ClCompile Include="src\Peon.cpp" />
     <ClCompile Include="src\pieza.cpp" />
     <ClCompile Include="src\Reina.cpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="include\Caballo.h" />
     <ClInclude Include="include\Menu.h" />
     <ClInclude Include="include\menuconfig.h" />
+    <ClInclude Include="include\MenuTematica.h" />
     <ClInclude Include="include\Peon.h" />
     <ClInclude Include="include\pieza.h" />
     <ClInclude Include="include\Reina.h" />

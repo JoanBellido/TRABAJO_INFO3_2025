@@ -31,34 +31,47 @@ GLuint TexturaPiezas::cargarTexturaPNG(const char* filename) {
     return texID;
 }
 
-void TexturaPiezas::cargarTodasLasTexturas(GLuint texturas[]) {
-    // imagen inicio (menu)
-    texturas[TexturaPiezas::FONDO_MENU] = cargarTexturaPNG("bin/piezas/fondo_menu.jpg");
-
-    texturas[TexturaPiezas::B_PEON] = cargarTexturaPNG("bin/piezas/b_peon.png");
-    texturas[TexturaPiezas::B_TORRE] = cargarTexturaPNG("bin/piezas/b_torre.png");
-    texturas[TexturaPiezas::B_CABALLO] = cargarTexturaPNG("bin/piezas/b_caballo.png");
-    texturas[TexturaPiezas::B_ALFIL] = cargarTexturaPNG("bin/piezas/b_alfil.png");
-    texturas[TexturaPiezas::B_REINA] = cargarTexturaPNG("bin/piezas/b_reina.png");
-    texturas[TexturaPiezas::B_REY] = cargarTexturaPNG("bin/piezas/b_rey.png");
-
-    texturas[TexturaPiezas::N_PEON] = cargarTexturaPNG("bin/piezas/n_peon.png");
-    texturas[TexturaPiezas::N_TORRE] = cargarTexturaPNG("bin/piezas/n_torre.png");
-    texturas[TexturaPiezas::N_CABALLO] = cargarTexturaPNG("bin/piezas/n_caballo.png");
-    texturas[TexturaPiezas::N_ALFIL] = cargarTexturaPNG("bin/piezas/n_alfil.png");
-    texturas[TexturaPiezas::N_REINA] = cargarTexturaPNG("bin/piezas/n_reina.png");
-    texturas[TexturaPiezas::N_REY] = cargarTexturaPNG("bin/piezas/n_rey.png");
+void TexturaPiezas::cargarTexturasClasicas(GLuint texturas[]) {
+    texturas[B_PEON] = cargarTexturaPNG("bin/piezas/b_peon.png");
+    texturas[B_TORRE] = cargarTexturaPNG("bin/piezas/b_torre.png");
+    texturas[B_CABALLO] = cargarTexturaPNG("bin/piezas/b_caballo.png");
+    texturas[B_ALFIL] = cargarTexturaPNG("bin/piezas/b_alfil.png");
+    texturas[B_REINA] = cargarTexturaPNG("bin/piezas/b_reina.png");
+    texturas[B_REY] = cargarTexturaPNG("bin/piezas/b_rey.png");
+    texturas[N_PEON] = cargarTexturaPNG("bin/piezas/n_peon.png");
+    texturas[N_TORRE] = cargarTexturaPNG("bin/piezas/n_torre.png");
+    texturas[N_CABALLO] = cargarTexturaPNG("bin/piezas/n_caballo.png");
+    texturas[N_ALFIL] = cargarTexturaPNG("bin/piezas/n_alfil.png");
+    texturas[N_REINA] = cargarTexturaPNG("bin/piezas/n_reina.png");
+    texturas[N_REY] = cargarTexturaPNG("bin/piezas/n_rey.png");
+}
+void TexturaPiezas::cargarmenu(GLuint texturas[]) {
+    texturas[FONDO_MENU] = cargarTexturaPNG("bin/piezas/fondo_menu.jpg");
+}
+void TexturaPiezas::cargarTexturasEgipcias(GLuint texturas[]) {
+    texturas[B_PEON] = cargarTexturaPNG("bin/piezas/buenos_peon.png");
+    texturas[B_TORRE] = cargarTexturaPNG("bin/piezas/buenos_torre.png");
+    texturas[B_CABALLO] = cargarTexturaPNG("bin/piezas/buenos_caballo.png");
+    texturas[B_ALFIL] = cargarTexturaPNG("bin/piezas/buenos_alfil.png");
+    texturas[B_REINA] = cargarTexturaPNG("bin/piezas/buenos_reina.png");
+    texturas[B_REY] = cargarTexturaPNG("bin/piezas/buenos_rey.png");
+    texturas[N_PEON] = cargarTexturaPNG("bin/piezas/malos_peon.png");
+    texturas[N_TORRE] = cargarTexturaPNG("bin/piezas/malos_torre.png");
+    texturas[N_CABALLO] = cargarTexturaPNG("bin/piezas/malos_caballo.png");
+    texturas[N_ALFIL] = cargarTexturaPNG("bin/piezas/malos_alfil.png");
+    texturas[N_REINA] = cargarTexturaPNG("bin/piezas/malos_reina.png");
+    texturas[N_REY] = cargarTexturaPNG("bin/piezas/malos_rey.png");
 }
 
 void TexturaPiezas::dibujarPieza(GLuint texID, float x, float y, float size) {
    
         glEnable(GL_TEXTURE_2D);
         glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); // Transparencia
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
         glBindTexture(GL_TEXTURE_2D, texID);
 
-        glColor3f(1.0f, 1.0f, 1.0f); // Sin tinte
+        glColor3f(1.0f, 1.0f, 1.0f);
 
         glBegin(GL_QUADS);
         glTexCoord2f(0, 0); glVertex2f(x, y);

@@ -68,18 +68,12 @@ void Menu::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJueg
         };
 
     if (clicEnBoton(glX, glY, boton1vs1)) {
-        ETSIDI::play("bin/music/click.mp3");
         modoJuego = ModoJuego::JugadorVsJugador;
-        logico->inicializar();
-        logico->imprimir();
-        estadoJuego = EstadoJuego::JUGANDO;
+        estadoJuego = EstadoJuego::ELEGIR_TEMATICA;
     }
     else if (clicEnBoton(glX, glY, botonVsIA)) {
-        ETSIDI::play("bin/music/click.mp3");
         modoJuego = ModoJuego::JugadorVsIA;
-        logico->inicializar();
-        logico->imprimir();
-        estadoJuego = EstadoJuego::JUGANDO;
+        estadoJuego = EstadoJuego::ELEGIR_TEMATICA;
     }
     else if (clicEnBoton(glX, glY, botoncred)) {
         ETSIDI::play("bin/music/click.mp3");

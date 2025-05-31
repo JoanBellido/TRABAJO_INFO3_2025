@@ -6,12 +6,19 @@ enum class EstadoJuego {
     MENU,
     JUGANDO,
     CREDITOS,
-    CONFIG
+    CONFIG,
+    ELEGIR_TEMATICA,
 };
+
 enum class ModoJuego {
     Ninguno,
     JugadorVsJugador,
     JugadorVsIA
+};
+
+enum class TematicaJuego {
+    Clasico,
+    Egipcio
 };
 
 class TableroLogico; 

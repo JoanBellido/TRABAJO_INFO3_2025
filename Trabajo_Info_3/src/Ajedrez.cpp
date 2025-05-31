@@ -10,7 +10,7 @@
 #include <chrono>
 #include "ETSIDI.h"
 #include "menuconfig.h"
-
+#include "MenuTematica.h"
 
 int tiempoBlanco = 300;
 int tiempoNegro = 300;
@@ -26,7 +26,8 @@ TableroLogico tableroLogico;
 TableroVisual tableroVisual(&tableroLogico, 1.0f);
 TexturaPiezas texturaPiezas;
 GLuint texturas[TexturaPiezas::TOTAL_TEXTURAS];
-
+TematicaJuego tematica;
+MenuTematica menuTematica;
 std::optional<Coordenada> seleccion;
 
 bool mostrarMensaje = true;
@@ -43,7 +44,10 @@ bool casillaActiva(int fila, int col) {
 void OnDraw() {
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
-
+    if (estadoJuego == EstadoJuego::ELEGIR_TEMATICA) {
+        menuTematica.dibujar();
+        return;
+    }
     if (estadoJuego == EstadoJuego::MENU) {
         menu.dibujar();
         return;
@@ -113,6 +117,15 @@ void OnMouse(int button, int state, int x, int y) {
     int h = glutGet(GLUT_WINDOW_HEIGHT);
     float glX = -5.5f + (float)x / w * 11.0f;
     float glY = 5.0f - (float)y / h * 10.0f;
+    if (estadoJuego == EstadoJuego::ELEGIR_TEMATICA) {
+        menuTematica.procesarClic(glX, glY, estadoJuego, modojuego, tematica);
+        if (estadoJuego == EstadoJuego::JUGANDO) {
+            tableroLogico.inicializar();
+            tableroLogico.imprimir();
+        }
+        glutPostRedisplay();
+        return;
+    }
 
     if (estadoJuego == EstadoJuego::MENU) {
         menu.procesarClic(glX, glY, estadoJuego, modojuego, &tableroLogico);
@@ -261,7 +274,7 @@ int main(int argc, char* argv[]) {
     glutKeyboardFunc(OnKeyboardDown);
     glutTimerFunc(25, OnTimer, 0);
     // texturas:
-    texturaPiezas.cargarTodasLasTexturas(texturas);
+    texturaPiezas.cargarmenu(texturas);
 
     lastTick = glutGet(GLUT_ELAPSED_TIME);
 

@@ -1,15 +1,2 @@
-﻿  Ajedrez.cpp
-  Alfil.cpp
-  Caballo.cpp
-  Menu.cpp
-  menuconfig.cpp
-  Peon.cpp
-  pieza.cpp
-  Reina.cpp
-  Rey.cpp
-  TableroLogico.cpp
-  tableroVisual.cpp
-  TexturaPiezas.cpp
-  Torre.cpp
-  Generando código...
-  Pang.vcxproj -> C:\Users\usuario\Downloads\CURSO 24 25\INFOINDUSTRIAL\Trabajo\TRABAJO_INFO3_2025\Trabajo_Info_3\bin\Pang.exe
+﻿  MenuTematica.cpp
+  Pang.vcxproj -> C:\Users\evaba\Documents\TRABAJO_INFO3_2025\Trabajo_Info_3\bin\Pang.exe
