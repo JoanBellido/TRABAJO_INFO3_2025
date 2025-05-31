@@ -27,20 +27,6 @@ void MenuConfig::dibujar() const {
     glutSwapBuffers();
 }
 
-void MenuConfig::dibujarBoton(const Boton& boton) const {
-    glColor3f(0.6f, 0.6f, 0.8f);
-    glBegin(GL_QUADS);
-    glVertex2f(boton.centroX - boton.ancho / 2, boton.centroY + boton.alto / 2);
-    glVertex2f(boton.centroX + boton.ancho / 2, boton.centroY + boton.alto / 2);
-    glVertex2f(boton.centroX + boton.ancho / 2, boton.centroY - boton.alto / 2);
-    glVertex2f(boton.centroX - boton.ancho / 2, boton.centroY - boton.alto / 2);
-    glEnd();
-
-    glColor3f(0, 0, 0);
-    glRasterPos2f(boton.centroX - 1.5f, boton.centroY - 0.2f);
-    for (char c : boton.texto)
-        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
-}
 
 void MenuConfig::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJuego& /*modojuego*/, TableroLogico* /*logico*/) const {
     auto clicEnBoton = [](float x, float y, const Boton& b) {
@@ -49,16 +35,22 @@ void MenuConfig::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, Mo
         };
 
     if (clicEnBoton(glX, glY, botonTheme1)) {
+        ETSIDI::play("bin/music/click.mp3");
         std::cout << "Botón de tema 1 clicado\n";
         ETSIDI::playMusica("bin/music/soundtrack1.mp3", true); //canción1
     }
     else if (clicEnBoton(glX, glY, botonTheme2)) {
+        ETSIDI::play("bin/music/click.mp3");
         std::cout << "Botón de tema2 clicado\n";
+        ETSIDI::playMusica("bin/music/soundtrack2.mp3", true); //canción2
     }
     else if (clicEnBoton(glX, glY, botonMute)) {
+        ETSIDI::play("bin/music/click.mp3");
         std::cout << "Botón de mutear clicado\n";
+        ETSIDI::stopMusica();
     }
     else if (clicEnBoton(glX, glY, botonVolver)) {
+        ETSIDI::play("bin/music/click.mp3");
         estadoJuego = EstadoJuego::MENU;
     }
 }

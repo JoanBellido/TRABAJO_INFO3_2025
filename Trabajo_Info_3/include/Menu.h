@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "ETSIDI.h"
 
 enum class EstadoJuego {
     MENU,
@@ -23,7 +24,7 @@ public:
     virtual void procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJuego& modoJuego, TableroLogico* logico) const;
 
 
-private:
+protected:
     struct Boton {
         float centroX, centroY;
         float ancho, alto;
