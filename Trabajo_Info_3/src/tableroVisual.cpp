@@ -73,7 +73,6 @@ void TableroVisual::dibuja() {
 
                     GLuint texID = texturas[p->getTipoTextura()];
                     if (texID != 0) {
-                        // Dibuja la textura de la pieza en la casilla
                         texturaPiezas.dibujarPieza(texID, x, y - size, size);
                     }
 
@@ -130,6 +129,7 @@ void TableroVisual::dibuja() {
         std::string textoTurno = "Turno: " + std::string(turnoActual == Color::BLANCO ? "Blanco" : "Negro");
         for (char c : textoTurno)
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+
     }
 }
 

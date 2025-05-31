@@ -9,9 +9,7 @@ std::vector<Coordenada> Caballo::movimientos_validos(const Coordenada& origen, c
     for (int i = 0; i < 8; ++i) {
         Coordenada destino{ origen.fila + dfilas[i], origen.col + dcols[i] };
         if (t.coordenadaValida(destino)) {
-            Pieza* p = t.getPieza(destino);
-            if (!p || p->getColor() != color)
-                movs.push_back(destino);
+            movs.push_back(destino);
         }
     }
 

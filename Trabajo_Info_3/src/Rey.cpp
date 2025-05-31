@@ -10,12 +10,11 @@ std::vector<Coordenada> Rey::movimientos_validos(const Coordenada& origen, const
 
             Coordenada destino{ origen.fila + df, origen.col + dc };
             if (t.coordenadaValida(destino)) {
-                Pieza* p = t.getPieza(destino);
-                if (!p || p->getColor() != color)
-                    movs.push_back(destino);
+                movs.push_back(destino);
             }
         }
     }
 
     return movs;
 }
+

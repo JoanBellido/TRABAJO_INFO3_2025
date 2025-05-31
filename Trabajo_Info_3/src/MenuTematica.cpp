@@ -66,12 +66,12 @@ void MenuTematica::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, 
 
     if (clicEnBoton(glX, glY, botonClasico)) {
         tematica = TematicaJuego::Clasico;
-        texturaPiezas.cargarTexturasClasicas(texturas);   // <-- Aquí cargas las clásicas
+        texturaPiezas.cargarTexturasClasicas(texturas);
         estadoJuego = EstadoJuego::JUGANDO;
     }
     else if (clicEnBoton(glX, glY, botonEgipcio)) {
         tematica = TematicaJuego::Egipcio;
-        texturaPiezas.cargarTexturasEgipcias(texturas);   // <-- Aquí cargas las egipcias
+        texturaPiezas.cargarTexturasEgipcias(texturas);
         estadoJuego = EstadoJuego::JUGANDO;
     }
 }

@@ -14,12 +14,8 @@ std::vector<Coordenada> Reina::movimientos_validos(const Coordenada& origen, con
 
         while (t.coordenadaValida({ f, c })) {
             Pieza* p = t.getPieza({ f, c });
-            if (p) {
-                if (p->getColor() != color)
-                    movs.push_back({ f, c });
-                break;
-            }
             movs.push_back({ f, c });
+            if (p) break;
             f += dir[0];
             c += dir[1];
         }
@@ -27,3 +23,4 @@ std::vector<Coordenada> Reina::movimientos_validos(const Coordenada& origen, con
 
     return movs;
 }
+

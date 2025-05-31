@@ -14,10 +14,11 @@ std::vector<Coordenada> Alfil::movimientos_validos(const Coordenada& origen, con
         while (t.coordenadaValida({ f, c })) {
             Pieza* p = t.getPieza({ f, c });
             if (p) {
-                if (p->getColor() != color)
-                    movs.push_back({ f, c });
+                movs.push_back({ f, c });
                 break;
             }
+            movs.push_back({ f, c });
+
             movs.push_back({ f, c });
             f += dir[0];
             c += dir[1];

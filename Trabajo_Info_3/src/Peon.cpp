@@ -19,10 +19,11 @@ std::vector<Coordenada> Peon::movimientos_validos(const Coordenada& origen, cons
         Coordenada diag = { origen.fila + dir, origen.col + d };
         if (t.coordenadaValida(diag)) {
             Pieza* p = t.getPieza(diag);
-            if (p && p->getColor() != color)
+            if (p)
                 movs.push_back(diag);
         }
     }
 
     return movs;
 }
+
