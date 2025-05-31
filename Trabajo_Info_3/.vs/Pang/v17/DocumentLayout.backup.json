@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\TableroLogico.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\Ajedrez.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|solutionrelative:src\\TableroLogico.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E575FADE-B6EB-4154-A1ED-8067A12EAE98}|Pang.vcxproj|C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -118,7 +118,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 79,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -206,26 +206,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Ajedrez.cpp",
               "DocumentMoniker": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp",
               "RelativeDocumentMoniker": "src\\Ajedrez.cpp",
               "ToolTip": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp",
               "RelativeToolTip": "src\\Ajedrez.cpp",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAowCMBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAowLMAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-31T11:04:03.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TableroLogico.cpp",
               "DocumentMoniker": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.cpp",
               "RelativeDocumentMoniker": "src\\TableroLogico.cpp",
               "ToolTip": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\TableroLogico.cpp",
               "RelativeToolTip": "src\\TableroLogico.cpp",
-              "ViewState": "AgIAAAcBAAAAAAAAAAAAABUBAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAEoBAAAAAAAAAAAAADMAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-31T13:50:23.8Z",
               "EditorCaption": ""

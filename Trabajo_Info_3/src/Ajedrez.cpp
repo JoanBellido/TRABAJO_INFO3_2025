@@ -173,7 +173,7 @@ void OnMouse(int button, int state, int x, int y) {
 
             Color turnoTrasMovimiento = tableroLogico.getTurno();
             if (tableroLogico.reyEnJaque(turnoTrasMovimiento)) {
-                mensajeEstado = "\u00a1Estás en jaque!";
+                mensajeEstado = "\u00a1Estas en jaque!";
                 if (tableroLogico.esJaqueMate(turnoTrasMovimiento)) {
                     mensajeEstado = "\u00a1Jaque mate! Gana el jugador ";
                     mensajeEstado += (turnoTrasMovimiento == BLANCO ? "NEGRO" : "BLANCO");

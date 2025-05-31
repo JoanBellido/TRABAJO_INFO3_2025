@@ -49,6 +49,9 @@ bool TableroLogico::mover(const Coordenada& origen, const Coordenada& destino) {
 
             Pieza* piezaOrigen = getPieza(origen);
             Pieza* piezaDestino = getPieza(destino);
+            if (piezaDestino && piezaDestino->getID() == 'R') {
+                return false;
+            }
 
             cuadricula[destino.fila][destino.col] = piezaOrigen;
             cuadricula[origen.fila][origen.col] = nullptr;
