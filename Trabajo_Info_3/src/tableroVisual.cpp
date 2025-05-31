@@ -1,6 +1,7 @@
 #include "TableroVisual.h"
 #include "TexturaPiezas.h"
 #include <string>
+#include <cmath>
 
 extern int tiempoBlanco, tiempoNegro;
 extern TexturaPiezas texturaPiezas;
@@ -12,6 +13,14 @@ TableroVisual::TableroVisual(TableroLogico* logico, float tam)
 
 void TableroVisual::setSeleccionada(std::optional<Coordenada> sel) {
     seleccionada = sel;
+}
+
+void TableroVisual::setMovimientosValidos(const std::vector<Coordenada>& movs) {
+    movimientosValidos = movs;
+}
+
+void TableroVisual::limpiarMovimientosValidos() {
+    movimientosValidos.clear();
 }
 
 void TableroVisual::dibujaReloj(int tiempo, float x, float y, const char* label) {
@@ -70,67 +79,79 @@ void TableroVisual::dibuja() {
             if (logico->coordenadaValida({ i, j })) {
                 Pieza* p = logico->getPieza({ i, j });
                 if (p) {
-
                     GLuint texID = texturas[p->getTipoTextura()];
                     if (texID != 0) {
                         texturaPiezas.dibujarPieza(texID, x, y - size, size);
                     }
-
-
                 }
             }
         }
-
-        if (seleccionada) {
-            Coordenada c = *seleccionada;
-            float x = origenX + c.col * size;
-            float y = origenY - c.fila * size;
-
-            glColor3f(1.0f, 1.0f, 0.0f);
-            glLineWidth(3.0f);
-            glBegin(GL_LINE_LOOP);
-            glVertex2f(x, y);
-            glVertex2f(x + size, y);
-            glVertex2f(x + size, y - size);
-            glVertex2f(x, y - size);
-            glEnd();
-            glLineWidth(1.0f);
-        }
-
-        dibujaReloj(tiempoBlanco, 3.2f, 4.0f, "Blanco");
-        dibujaReloj(tiempoNegro, 3.2f, -4.0f, "Negro");
-
-        Color turnoActual = logico->getTurno();
-        float turnoX = -5.2f;
-        float turnoY = (turnoActual == Color::BLANCO) ? 4.0f : -4.0f;
-
-        float r = (turnoActual == Color::BLANCO) ? 0.95f : 0.2f;
-        float g = (turnoActual == Color::BLANCO) ? 0.95f : 0.2f;
-        float b = (turnoActual == Color::BLANCO) ? 1.0f : 0.2f;
-
-        glColor3f(r, g, b);
-        glBegin(GL_QUADS);
-        glVertex2f(turnoX - 0.2f, turnoY + 0.3f);
-        glVertex2f(turnoX + 2.4f, turnoY + 0.3f);
-        glVertex2f(turnoX + 2.4f, turnoY - 0.3f);
-        glVertex2f(turnoX - 0.2f, turnoY - 0.3f);
-        glEnd();
-
-        glColor3f(0.2f, 0.2f, 0.2f);
-        glBegin(GL_LINE_LOOP);
-        glVertex2f(turnoX - 0.2f, turnoY + 0.3f);
-        glVertex2f(turnoX + 2.4f, turnoY + 0.3f);
-        glVertex2f(turnoX + 2.4f, turnoY - 0.3f);
-        glVertex2f(turnoX - 0.2f, turnoY - 0.3f);
-        glEnd();
-
-        glColor3f(0, 0, 0);
-        glRasterPos2f(turnoX + 0.2f, turnoY - 0.05f);
-        std::string textoTurno = "Turno: " + std::string(turnoActual == Color::BLANCO ? "Blanco" : "Negro");
-        for (char c : textoTurno)
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
-
     }
+
+    // ? Dibujamos los movimientos válidos
+    glColor3f(0.0f, 0.8f, 0.0f);
+    for (const Coordenada& c : movimientosValidos) {
+        float x = origenX + c.col * size + size / 2.0f;
+        float y = origenY - c.fila * size - size / 2.0f;
+        float radio = size * 0.15f;
+
+        glBegin(GL_POLYGON);
+        for (int i = 0; i < 20; ++i) {
+            float theta = i * 2.0f * 3.14159f / 20;
+            glVertex2f(x + radio * cos(theta), y + radio * sin(theta));
+        }
+        glEnd();
+    }
+
+    // ? Dibujamos la pieza seleccionada
+    if (seleccionada) {
+        Coordenada c = *seleccionada;
+        float x = origenX + c.col * size;
+        float y = origenY - c.fila * size;
+
+        glColor3f(1.0f, 1.0f, 0.0f);
+        glLineWidth(3.0f);
+        glBegin(GL_LINE_LOOP);
+        glVertex2f(x, y);
+        glVertex2f(x + size, y);
+        glVertex2f(x + size, y - size);
+        glVertex2f(x, y - size);
+        glEnd();
+        glLineWidth(1.0f);
+    }
+
+    dibujaReloj(tiempoBlanco, 3.2f, 4.0f, "Blanco");
+    dibujaReloj(tiempoNegro, 3.2f, -4.0f, "Negro");
+
+    Color turnoActual = logico->getTurno();
+    float turnoX = -5.2f;
+    float turnoY = (turnoActual == Color::BLANCO) ? 4.0f : -4.0f;
+
+    float r = (turnoActual == Color::BLANCO) ? 0.95f : 0.2f;
+    float g = (turnoActual == Color::BLANCO) ? 0.95f : 0.2f;
+    float b = (turnoActual == Color::BLANCO) ? 1.0f : 0.2f;
+
+    glColor3f(r, g, b);
+    glBegin(GL_QUADS);
+    glVertex2f(turnoX - 0.2f, turnoY + 0.3f);
+    glVertex2f(turnoX + 2.4f, turnoY + 0.3f);
+    glVertex2f(turnoX + 2.4f, turnoY - 0.3f);
+    glVertex2f(turnoX - 0.2f, turnoY - 0.3f);
+    glEnd();
+
+    glColor3f(0.2f, 0.2f, 0.2f);
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(turnoX - 0.2f, turnoY + 0.3f);
+    glVertex2f(turnoX + 2.4f, turnoY + 0.3f);
+    glVertex2f(turnoX + 2.4f, turnoY - 0.3f);
+    glVertex2f(turnoX - 0.2f, turnoY - 0.3f);
+    glEnd();
+
+    glColor3f(0, 0, 0);
+    glRasterPos2f(turnoX + 0.2f, turnoY - 0.05f);
+    std::string textoTurno = "Turno: " + std::string(turnoActual == Color::BLANCO ? "Blanco" : "Negro");
+    for (char c : textoTurno)
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
 }
 
 

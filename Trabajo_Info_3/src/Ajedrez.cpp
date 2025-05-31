@@ -28,8 +28,8 @@ TexturaPiezas texturaPiezas;
 GLuint texturas[TexturaPiezas::TOTAL_TEXTURAS];
 TematicaJuego tematica;
 MenuTematica menuTematica;
-std::optional<Coordenada> seleccion;
 
+std::optional<Coordenada> seleccion;
 bool mostrarMensaje = true;
 int blinkTimer = 0;
 
@@ -44,6 +44,7 @@ bool casillaActiva(int fila, int col) {
 void OnDraw() {
     glClearColor(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
+
     if (estadoJuego == EstadoJuego::ELEGIR_TEMATICA) {
         menuTematica.dibujar();
         return;
@@ -56,20 +57,14 @@ void OnDraw() {
         menuConfig.dibujar();
         return;
     }
-
-
     if (estadoJuego == EstadoJuego::CREDITOS) {
         glClearColor(0.9f, 0.9f, 0.95f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glColor3f(0.1f, 0.1f, 0.1f);
-        glRasterPos2f(-2.0f, 2.5f);
-        // dibuja fondo
         glEnable(GL_TEXTURE_2D);
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glBindTexture(GL_TEXTURE_2D, texturas[TexturaPiezas::FONDO_MENU]);
-
         glColor3f(1, 1, 1);
         glBegin(GL_QUADS);
         glTexCoord2f(0, 0); glVertex2f(-5.5f, 5.0f);
@@ -77,10 +72,11 @@ void OnDraw() {
         glTexCoord2f(1, 1); glVertex2f(5.5f, -5.0f);
         glTexCoord2f(0, 1); glVertex2f(-5.5f, -5.0f);
         glEnd();
-
         glDisable(GL_BLEND);
         glDisable(GL_TEXTURE_2D);
-        //
+
+        glColor3f(0.1f, 0.1f, 0.1f);
+        glRasterPos2f(-2.0f, 2.5f);
         const char* titulo = "Equipo G08";
         for (const char* c = titulo; *c; ++c)
             glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
@@ -134,6 +130,7 @@ void OnMouse(int button, int state, int x, int y) {
     int h = glutGet(GLUT_WINDOW_HEIGHT);
     float glX = -5.5f + (float)x / w * 11.0f;
     float glY = 5.0f - (float)y / h * 10.0f;
+
     if (estadoJuego == EstadoJuego::ELEGIR_TEMATICA) {
         menuTematica.procesarClic(glX, glY, estadoJuego, modojuego, tematica);
         if (estadoJuego == EstadoJuego::JUGANDO) {
@@ -143,7 +140,6 @@ void OnMouse(int button, int state, int x, int y) {
         glutPostRedisplay();
         return;
     }
-
     if (estadoJuego == EstadoJuego::MENU) {
         menu.procesarClic(glX, glY, estadoJuego, modojuego, &tableroLogico);
         glutPostRedisplay();
@@ -154,7 +150,6 @@ void OnMouse(int button, int state, int x, int y) {
         glutPostRedisplay();
         return;
     }
-
     if (tiempoFinalizado) return;
 
     int fila = static_cast<int>(5.0f - glY);
@@ -168,6 +163,8 @@ void OnMouse(int button, int state, int x, int y) {
         if (p && p->getColor() == tableroLogico.getTurno()) {
             seleccion = clic;
             tableroVisual.setSeleccionada(seleccion);
+            auto movimientos = p->movimientos_validos(clic, tableroLogico);
+            tableroVisual.setMovimientosValidos(movimientos);
         }
     }
     else {
@@ -191,8 +188,7 @@ void OnMouse(int button, int state, int x, int y) {
                 std::thread iaThread([] {
                     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
                     tableroLogico.movimientoIA();
-
-                    Color turnoTrasIA = tableroLogico.getTurno(); 
+                    Color turnoTrasIA = tableroLogico.getTurno();
                     if (tableroLogico.reyEnJaque(turnoTrasIA)) {
                         mensajeEstado = "\u00a1Estás en jaque!";
                         if (tableroLogico.esJaqueMate(turnoTrasIA)) {
@@ -201,19 +197,15 @@ void OnMouse(int button, int state, int x, int y) {
                             tiempoFinalizado = true;
                         }
                     }
-                    else {
-                        mensajeEstado = "";
-                    }
-
+                    else mensajeEstado = "";
                     glutPostRedisplay();
                     });
                 iaThread.detach();
             }
-
         }
-
         seleccion.reset();
         tableroVisual.setSeleccionada(std::nullopt);
+        tableroVisual.limpiarMovimientosValidos();
     }
 
     glutPostRedisplay();
@@ -223,6 +215,7 @@ void OnKeyboardDown(unsigned char key, int, int) {
     if (key == 'r') {
         seleccion.reset();
         tableroVisual.setSeleccionada(std::nullopt);
+        tableroVisual.limpiarMovimientosValidos();
         tiempoBlanco = 300;
         tiempoNegro = 300;
         tiempoFinalizado = false;
@@ -235,6 +228,7 @@ void OnKeyboardDown(unsigned char key, int, int) {
         tableroLogico.inicializar();
         seleccion.reset();
         tableroVisual.setSeleccionada(std::nullopt);
+        tableroVisual.limpiarMovimientosValidos();
         tiempoBlanco = 300;
         tiempoNegro = 300;
         tiempoFinalizado = false;
@@ -290,18 +284,11 @@ int main(int argc, char* argv[]) {
     glutMouseFunc(OnMouse);
     glutKeyboardFunc(OnKeyboardDown);
     glutTimerFunc(25, OnTimer, 0);
-    // texturas:
     texturaPiezas.cargarmenu(texturas);
-
     lastTick = glutGet(GLUT_ELAPSED_TIME);
-
-    //implementación futura de la música
-   // ETSIDI::playMusica("bin/music/soundtrack1.mp3", true);
-
     glutMainLoop();
     return 0;
 }
-
 
 
 

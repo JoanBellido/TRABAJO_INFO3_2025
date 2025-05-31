@@ -1,4 +1,17 @@
-﻿  Reina.cpp
+﻿  Ajedrez.cpp
+  Alfil.cpp
+  Caballo.cpp
+  Menu.cpp
+  menuconfig.cpp
+  MenuTematica.cpp
+  Peon.cpp
+  pieza.cpp
+  Reina.cpp
+  Rey.cpp
+  TableroLogico.cpp
+  tableroVisual.cpp
+  TexturaPiezas.cpp
   Torre.cpp
   Generando código...
-  Pang.vcxproj -> C:\Users\evaba\Documents\TRABAJO_INFO3_2025\Trabajo_Info_3\bin\Pang.exe
+  LINK : no se encontró C:\Users\manue\OneDrive - Universidad Politécnica de Madrid\Ing. electronica\TERCERO\TRABAJO_INFO3_2025\Trabajo_Info_3\bin\Pang.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  Pang.vcxproj -> C:\Users\manue\OneDrive - Universidad Politécnica de Madrid\Ing. electronica\TERCERO\TRABAJO_INFO3_2025\Trabajo_Info_3\bin\Pang.exe
