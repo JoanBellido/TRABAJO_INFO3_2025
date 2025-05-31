@@ -22,7 +22,9 @@ public:
     };
 
     GLuint cargarTexturaPNG(const char* filename);
-    void cargarTodasLasTexturas(GLuint texturas[]);
+    void cargarTexturasClasicas(GLuint texturas[]);
+    void cargarTexturasEgipcias(GLuint texturas[]);
+    void cargarmenu(GLuint texturas[]);
     void dibujarPieza(GLuint texID, float x, float y, float size);
 
 };
