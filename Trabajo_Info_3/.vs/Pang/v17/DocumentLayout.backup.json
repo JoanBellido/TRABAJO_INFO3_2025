@@ -118,21 +118,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 79,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "tableroVisual.h",
-              "DocumentMoniker": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h",
-              "RelativeDocumentMoniker": "include\\tableroVisual.h",
-              "ToolTip": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h*",
-              "RelativeToolTip": "include\\tableroVisual.h*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-31T14:59:13.24Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -143,8 +130,7 @@
               "RelativeToolTip": "src\\Reina.cpp",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-31T13:50:18.257Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T13:50:18.257Z"
             },
             {
               "$type": "Document",
@@ -224,12 +210,11 @@
               "Title": "tableroVisual.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp",
               "RelativeDocumentMoniker": "src\\tableroVisual.cpp",
-              "ToolTip": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp*",
-              "RelativeToolTip": "src\\tableroVisual.cpp*",
+              "ToolTip": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\tableroVisual.cpp",
+              "RelativeToolTip": "src\\tableroVisual.cpp",
               "ViewState": "AgIAAH8AAAAAAAAAAAAowJsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-31T13:50:33.213Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T13:50:33.213Z"
             },
             {
               "$type": "Document",
@@ -237,12 +222,24 @@
               "Title": "Ajedrez.cpp",
               "DocumentMoniker": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp",
               "RelativeDocumentMoniker": "src\\Ajedrez.cpp",
-              "ToolTip": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp*",
-              "RelativeToolTip": "src\\Ajedrez.cpp*",
+              "ToolTip": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\Ajedrez.cpp",
+              "RelativeToolTip": "src\\Ajedrez.cpp",
               "ViewState": "AgIAAAoBAAAAAAAAAAAowCMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-31T11:04:03.791Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "tableroVisual.h",
+              "DocumentMoniker": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h",
+              "RelativeDocumentMoniker": "include\\tableroVisual.h",
+              "ToolTip": "C:\\Users\\manue\\OneDrive - Universidad Polit\u00E9cnica de Madrid\\Ing. electronica\\TERCERO\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\include\\tableroVisual.h",
+              "RelativeToolTip": "include\\tableroVisual.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-31T14:59:13.24Z"
             },
             {
               "$type": "Document",
