@@ -275,15 +275,21 @@ bool TableroLogico::movimientoIA() {
 
                     int valor = 0;
                     if (piezaDestino) {
-                        switch (piezaDestino->getID()) {
-                        case 'P': valor = 1; break;
-                        case 'C': case 'A': valor = 3; break;
-                        case 'T': valor = 5; break;
-                        case 'Q': valor = 9; break;
-                        case 'R': valor = 100; break;
-                        default: valor = 0; break;
+                        if (piezaDestino->getColor() == turno) {
+                            valor = -1000;
+                        }
+                        else {
+                            switch (piezaDestino->getID()) {
+                            case 'P': valor = 1; break;
+                            case 'C': case 'A': valor = 3; break;
+                            case 'T': valor = 5; break;
+                            case 'Q': valor = 9; break;
+                            case 'R': valor = 100; break;
+                            default: valor = 0; break;
+                            }
                         }
                     }
+
 
                     posibles.push_back({ origen, destino, valor });
                 }
