@@ -1,9 +1,15 @@
 ﻿  Ajedrez.cpp
+  Alfil.cpp
+  Caballo.cpp
   Menu.cpp
-C:\Users\usuario\Downloads\CURSO 24 25\INFOINDUSTRIAL\Trabajo\TRABAJO_INFO3_2025\Trabajo_Info_3\src\Ajedrez.cpp(1,1): error C1041: no puede abrir la base de datos de programa 'C:\Users\usuario\Downloads\CURSO 24 25\INFOINDUSTRIAL\Trabajo\TRABAJO_INFO3_2025\Trabajo_Info_3\.vs\tmp\Debug\vc143.pdb'. Si varios CL.EXE escriben en el mismo archivo .PDB, use /FS.
   menuconfig.cpp
-C:\Users\usuario\Downloads\CURSO 24 25\INFOINDUSTRIAL\Trabajo\TRABAJO_INFO3_2025\Trabajo_Info_3\src\menuconfig.cpp(30,18): error C2509: 'dibujarBoton': función miembro no declarada en 'MenuConfig'
-      C:\Users\usuario\Downloads\CURSO 24 25\INFOINDUSTRIAL\Trabajo\TRABAJO_INFO3_2025\Trabajo_Info_3\include\menuconfig.h(5,7):
-      vea la declaración de 'MenuConfig'
-  
+  Peon.cpp
+  pieza.cpp
+  Reina.cpp
+  Rey.cpp
+  TableroLogico.cpp
+  tableroVisual.cpp
+  TexturaPiezas.cpp
+  Torre.cpp
   Generando código...
+  Pang.vcxproj -> C:\Users\usuario\Downloads\CURSO 24 25\INFOINDUSTRIAL\Trabajo\TRABAJO_INFO3_2025\Trabajo_Info_3\bin\Pang.exe

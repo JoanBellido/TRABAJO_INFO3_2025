@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "ETSIDI.h"
 
 enum class EstadoJuego {
     MENU,
