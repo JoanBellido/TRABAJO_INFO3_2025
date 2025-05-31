@@ -4,9 +4,9 @@
 extern GLuint texturas[];
 
 MenuTematica::MenuTematica()
-    : botonClasico{ 0.0f, 1.0f, 4.0f, 1.2f, "Modo Clasico" },
-    botonEgipcio{ 0.0f, -1.0f, 4.0f, 1.2f, "Modo Egipcio" }
-{
+    : botonClasico{ 0.0f, 2.0f, 4.0f, 1.2f, "Modo Clasico" },
+    botonEgipcio{ 0.0f, 0.6f, 4.0f, 1.2f, "Modo Egipcio" },
+    botonVolver{ 0.0f, -0.8f, 4.0f, 1.2f, "Volver" } {
 }
 
 void MenuTematica::dibujar() const {
@@ -38,6 +38,7 @@ void MenuTematica::dibujar() const {
 
     dibujarBoton(botonClasico);
     dibujarBoton(botonEgipcio);
+    dibujarBoton(botonVolver);
 
     glutSwapBuffers();
 }
@@ -67,13 +68,19 @@ void MenuTematica::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, 
         };
 
     if (clicEnBoton(glX, glY, botonClasico)) {
+        ETSIDI::play("bin/music/click.mp3");
         tematica = TematicaJuego::Clasico;
         texturaPiezas.cargarTexturasClasicas(texturas);
         estadoJuego = EstadoJuego::JUGANDO;
     }
     else if (clicEnBoton(glX, glY, botonEgipcio)) {
+        ETSIDI::play("bin/music/click.mp3");
         tematica = TematicaJuego::Egipcio;
         texturaPiezas.cargarTexturasEgipcias(texturas);
         estadoJuego = EstadoJuego::JUGANDO;
+    }
+    else if (clicEnBoton(glX, glY, botonVolver)) {
+        ETSIDI::play("bin/music/click.mp3");
+        estadoJuego = EstadoJuego::MENU;
     }
 }

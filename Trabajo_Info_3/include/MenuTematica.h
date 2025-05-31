@@ -10,6 +10,7 @@ public:
 private:
     Menu::Boton botonClasico;
     Menu::Boton botonEgipcio;
+    Menu::Boton botonVolver;
 
     void dibujarBoton(const Boton& boton) const;
 };
