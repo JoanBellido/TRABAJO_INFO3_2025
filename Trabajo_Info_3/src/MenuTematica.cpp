@@ -5,7 +5,8 @@ extern GLuint texturas[];
 
 MenuTematica::MenuTematica()
     : botonClasico{ 0.0f, 1.0f, 4.0f, 1.2f, "Modo Clasico" },
-    botonEgipcio{ 0.0f, -1.0f, 4.0f, 1.2f, "Modo Egipcio" } {
+    botonEgipcio{ 0.0f, -1.0f, 4.0f, 1.2f, "Modo Egipcio" }
+{
 }
 
 void MenuTematica::dibujar() const {
@@ -14,7 +15,7 @@ void MenuTematica::dibujar() const {
 
     glColor3f(0.1f, 0.1f, 0.3f);
     glRasterPos2f(-2.0f, 3.0f);
-    // dibuja fondo
+
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -30,13 +31,14 @@ void MenuTematica::dibujar() const {
 
     glDisable(GL_BLEND);
     glDisable(GL_TEXTURE_2D);
-    //
+
     const char* titulo = "Selecciona Tematica";
     for (const char* c = titulo; *c; ++c)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *c);
 
     dibujarBoton(botonClasico);
     dibujarBoton(botonEgipcio);
+
     glutSwapBuffers();
 }
 
@@ -57,7 +59,7 @@ void MenuTematica::dibujarBoton(const Boton& boton) const {
 
 void MenuTematica::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJuego modoJuego, TematicaJuego& tematica) {
     extern TexturaPiezas texturaPiezas;
-    extern GLuint texturas[];  // Usamos los mismos arrays globales
+    extern GLuint texturas[];
 
     auto clicEnBoton = [](float x, float y, const Boton& b) {
         return x >= b.centroX - b.ancho / 2 && x <= b.centroX + b.ancho / 2 &&
@@ -75,4 +77,3 @@ void MenuTematica::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, 
         estadoJuego = EstadoJuego::JUGANDO;
     }
 }
-
