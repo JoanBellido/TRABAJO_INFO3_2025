@@ -154,8 +154,7 @@
               "RelativeToolTip": "src\\Menu.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-15T12:44:46.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T12:44:46.366Z"
             },
             {
               "$type": "Document",
@@ -167,8 +166,7 @@
               "RelativeToolTip": "src\\menuconfig.cpp",
               "ViewState": "AgIAAEEAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-30T00:01:02.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T00:01:02.562Z"
             },
             {
               "$type": "Document",
@@ -180,8 +178,7 @@
               "RelativeToolTip": "include\\menuconfig.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-30T00:00:55.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-30T00:00:55.59Z"
             },
             {
               "$type": "Document",
@@ -193,8 +190,7 @@
               "RelativeToolTip": "include\\Menu.h",
               "ViewState": "AgIAAB8AAAAAAAAAAAAAAC4AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-11T12:01:14.641Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-11T12:01:14.641Z"
             },
             {
               "$type": "Document",
@@ -206,8 +202,7 @@
               "RelativeToolTip": "include\\MenuTematica.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-31T11:01:25.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-31T11:01:25.567Z"
             },
             {
               "$type": "Document",
@@ -217,7 +212,7 @@
               "RelativeDocumentMoniker": "src\\MenuTematica.cpp",
               "ToolTip": "C:\\Users\\evaba\\Documents\\TRABAJO_INFO3_2025\\Trabajo_Info_3\\src\\MenuTematica.cpp",
               "RelativeToolTip": "src\\MenuTematica.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-31T11:02:27.628Z",
               "EditorCaption": ""

@@ -75,7 +75,7 @@ void OnDraw() {
         glDisable(GL_BLEND);
         glDisable(GL_TEXTURE_2D);
 
-        glColor3f(0.1f, 0.1f, 0.1f);
+        glColor3f(0.8f, 0.7f, 0.9f);
         glRasterPos2f(-2.0f, 2.5f);
         const char* titulo = "Equipo G08";
         for (const char* c = titulo; *c; ++c)
