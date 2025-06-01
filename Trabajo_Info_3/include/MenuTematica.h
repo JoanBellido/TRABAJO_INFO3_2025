@@ -1,20 +1,16 @@
 #pragma once
 #include "Menu.h"
 
-class MenuTematica {
+class MenuTematica : public Menu {
 public:
     MenuTematica();
-    void dibujar() const;
+
+    void dibujar() const override;
     void procesarClic(float glX, float glY, EstadoJuego& estadoJuego, ModoJuego modoJuego, TematicaJuego& tematica);
-
 private:
-    struct Boton {
-        float centroX, centroY;
-        float ancho, alto;
-        std::string texto;
-    };
+    Menu::Boton botonClasico;
+    Menu::Boton botonEgipcio;
+    Menu::Boton botonVolver;
 
-    Boton botonClasico;
-    Boton botonEgipcio;
     void dibujarBoton(const Boton& boton) const;
 };

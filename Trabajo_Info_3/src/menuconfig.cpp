@@ -55,17 +55,17 @@ void MenuConfig::procesarClic(float glX, float glY, EstadoJuego& estadoJuego, Mo
 
     if (clicEnBoton(glX, glY, botonTheme1)) {
         ETSIDI::play("bin/music/click.mp3");
-        std::cout << "Botón de tema 1 clicado\n";
+        std::cout << "Boton de tema 1 clicado\n";
         ETSIDI::playMusica("bin/music/soundtrack1.mp3", true); //canción1
     }
     else if (clicEnBoton(glX, glY, botonTheme2)) {
         ETSIDI::play("bin/music/click.mp3");
-        std::cout << "Botón de tema2 clicado\n";
+        std::cout << "Boton de tema2 clicado\n";
         ETSIDI::playMusica("bin/music/soundtrack2.mp3", true); //canción2
     }
     else if (clicEnBoton(glX, glY, botonMute)) {
         ETSIDI::play("bin/music/click.mp3");
-        std::cout << "Botón de mutear clicado\n";
+        std::cout << "Boton de mutear clicado\n";
         ETSIDI::stopMusica();
     }
     else if (clicEnBoton(glX, glY, botonVolver)) {
